@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>โปรแกรมเบิกน้ำมัน</title>
+<meta name="description" content="โปรแกรมทำเอกสารเบิกน้ำมันประจำเดือนสำหรับสถานีตำรวจภูธร คีย์ครั้งเดียวได้เอกสารครบ 7 ชนิด">
+<meta property="og:title" content="โปรแกรมเบิกน้ำมัน — สำหรับสถานีตำรวจภูธร">
+<meta property="og:description" content="คีย์ใบเสร็จครั้งเดียว ได้เอกสารเบิกน้ำมันประจำเดือนครบ 7 ชนิด พร้อมพิมพ์">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%238E7C4E'/%3E%3Cpath d='M9 8h9l5 5v11H9z' fill='none' stroke='%23F4F1E9' stroke-width='2'/%3E%3Cpath d='M12 17h8M12 20h6' stroke='%23F4F1E9' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Trirong:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F4F1E9;
+  --paper-2:#EAE5D8;
+  --card:#FBF9F4;
+  --ink:#1A1814;
+  --ink-2:#4A453B;
+  --ink-3:#756E5F;
+  --rule:#D6CFBC;
+  --rule-2:#C0B79E;
+  --khaki:#8E7C4E;
+  --khaki-deep:#6E5F3A;
+  --navy:#202B45;
+  --stripe:#9E2B22;
+  --ok:#3F6B4A;
+  --shadow:rgba(48,42,28,.10);
+  --on-accent:#FBF9F4;
+
+  --f-display:"Trirong",Georgia,"Times New Roman",serif;
+  --f-body:"IBM Plex Sans Thai","Leelawadee UI","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono","DejaVu Sans Mono",monospace;
+
+  --wrap:74rem;
+  --measure:60ch;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#15140F;
+    --paper-2:#1D1B15;
+    --card:#1E1C15;
+    --ink:#EFEADC;
+    --ink-2:#C3BBA6;
+    --ink-3:#948B76;
+    --rule:#33301F;
+    --rule-2:#4A452F;
+    --khaki:#C9B47C;
+    --khaki-deep:#E0CE9E;
+    --navy:#9FB0D6;
+    --stripe:#D9776A;
+    --ok:#8CBE99;
+    --shadow:rgba(0,0,0,.45);
+    --on-accent:#15140F;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15140F;
+  --paper-2:#1D1B15;
+  --card:#1E1C15;
+  --ink:#EFEADC;
+  --ink-2:#C3BBA6;
+  --ink-3:#948B76;
+  --rule:#33301F;
+  --rule-2:#4A452F;
+  --khaki:#C9B47C;
+  --khaki-deep:#E0CE9E;
+  --navy:#9FB0D6;
+  --stripe:#D9776A;
+  --ok:#8CBE99;
+  --shadow:rgba(0,0,0,.45);
+  --on-accent:#15140F;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:17px;
+  line-height:1.75;
+  overflow-x:hidden;
+}
+img{max-width:100%}
+a{color:var(--khaki-deep)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--stripe);outline-offset:3px;border-radius:2px}
+
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.1rem,4vw,2.5rem)}
+
+/* ── ตราหัวกระดาษ ─────────────────────────────── */
+.masthead{border-bottom:1px solid var(--rule);background:var(--paper-2)}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.6rem}
+.crest{display:flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.crest span{width:26px;height:26px;border:1.5px solid var(--khaki);border-radius:3px;display:grid;place-items:center;color:var(--khaki);font-size:.7rem;letter-spacing:0}
+.masthead nav{display:flex;gap:1.25rem;font-size:.9rem}
+.masthead nav a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+.masthead nav a:hover{color:var(--ink);border-bottom-color:var(--khaki)}
+@media (max-width:640px){.masthead nav{display:none}}
+
+/* ── หัวเรื่องแบบบันทึกข้อความ ─────────────────── */
+.memo{padding-block:clamp(2.5rem,6vw,4.25rem)}
+.memo-sheet{
+  background:var(--card);
+  border:1px solid var(--rule-2);
+  box-shadow:0 1px 0 var(--rule), 0 18px 40px -30px var(--shadow);
+  padding:clamp(1.4rem,4vw,2.75rem);
+}
+.memo-kicker{
+  font-family:var(--f-mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--khaki-deep);margin:0 0 1.4rem;
+}
+.memo-rows{display:grid;gap:.55rem;margin-bottom:1.9rem}
+.memo-row{display:grid;grid-template-columns:6.5rem 1fr;gap:.9rem;align-items:baseline;padding-bottom:.55rem;border-bottom:1px dotted var(--rule)}
+.memo-row:last-child{border-bottom:0;padding-bottom:0}
+.memo-row dt{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em;color:var(--ink-3);white-space:nowrap}
+.memo-row dd{margin:0;color:var(--ink-2)}
+.memo-row dd b{color:var(--ink);font-weight:600}
+@media (max-width:560px){.memo-row{grid-template-columns:1fr;gap:.1rem}}
+
+h1{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(2.1rem,6.4vw,3.5rem);line-height:1.18;letter-spacing:-.01em;
+  margin:0 0 .7rem;text-wrap:balance;
+}
+.lede{font-size:clamp(1.06rem,2.1vw,1.22rem);color:var(--ink-2);max-width:var(--measure);margin:0 0 1.9rem}
+
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.4rem;padding-top:1.5rem;border-top:2px solid var(--khaki)}
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--f-body);font-size:1.02rem;font-weight:600;
+  padding:.78rem 1.5rem;border:0;cursor:pointer;text-decoration:none;
+  background:var(--stripe);color:var(--on-accent);
+  transition:transform .12s ease,filter .12s ease;
+}
+.btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.btn svg{flex:none}
+.btn-2{background:transparent;color:var(--ink);border:1.5px solid var(--rule-2);padding:.72rem 1.25rem}
+.btn-2:hover{border-color:var(--khaki);filter:none}
+.cta-note{font-size:.86rem;color:var(--ink-3);font-family:var(--f-mono)}
+
+/* ── โครงหน้าทั่วไป ────────────────────────────── */
+section{padding-block:clamp(2.75rem,6vw,4.5rem);border-top:1px solid var(--rule)}
+.sec-head{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;margin-bottom:2.2rem;align-items:start}
+.sec-label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--khaki-deep);padding-top:.55rem;border-top:2px solid var(--khaki)}
+h2{font-family:var(--f-display);font-weight:600;font-size:clamp(1.55rem,3.6vw,2.2rem);line-height:1.3;margin:0 0 .5rem;text-wrap:balance}
+.sec-head p{margin:0;color:var(--ink-2);max-width:var(--measure)}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr;gap:.9rem}.sec-label{display:inline-block;padding-inline-end:2rem}}
+
+/* ── ก่อน/หลัง ─────────────────────────────────── */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.compare > div{background:var(--card);padding:clamp(1.1rem,3vw,1.8rem)}
+.compare h3{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;margin:0 0 1rem;color:var(--ink-3)}
+.compare.after h3{color:var(--ok)}
+.compare ul{margin:0;padding-inline-start:1.15rem;display:grid;gap:.55rem}
+.compare li{color:var(--ink-2)}
+.compare .now h3{color:var(--stripe)}
+.compare .now li::marker{color:var(--stripe)}
+.compare .then li::marker{color:var(--ok)}
+@media (max-width:700px){.compare{grid-template-columns:1fr}}
+
+/* ── ตารางเอกสาร ───────────────────────────────── */
+.tablewrap{overflow-x:auto;border:1px solid var(--rule-2);background:var(--card)}
+table{width:100%;border-collapse:collapse;min-width:38rem}
+caption{text-align:start;padding:.9rem 1.1rem;font-family:var(--f-mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--rule)}
+th,td{text-align:start;padding:.72rem 1.1rem;border-bottom:1px solid var(--rule);vertical-align:baseline}
+thead th{font-family:var(--f-mono);font-weight:500;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);background:var(--paper-2)}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+td.form{font-family:var(--f-mono);font-size:.86rem;color:var(--khaki-deep);white-space:nowrap;font-variant-numeric:tabular-nums}
+td.doc{font-weight:500;color:var(--ink)}
+td.file{font-family:var(--f-mono);font-size:.82rem;color:var(--ink-3);white-space:nowrap}
+tbody tr:hover{background:var(--paper-2)}
+
+/* ── รายการจุดเด่น ─────────────────────────────── */
+.feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media (max-width:980px){.feats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.feats{grid-template-columns:1fr}}
+.feat{background:var(--card);padding:clamp(1.1rem,2.6vw,1.6rem);display:grid;gap:.45rem;align-content:start}
+.feat h3{font-size:1.02rem;font-weight:600;margin:0;color:var(--ink)}
+.feat p{margin:0;font-size:.94rem;color:var(--ink-2)}
+.feat .num{font-family:var(--f-mono);font-size:1.5rem;font-weight:500;color:var(--khaki);line-height:1.1;font-variant-numeric:tabular-nums}
+
+/* ── ขั้นตอน ───────────────────────────────────── */
+.steps{display:grid;gap:0;counter-reset:s;border-inline-start:2px solid var(--khaki);padding-inline-start:0;margin:0;list-style:none}
+.steps li{counter-increment:s;padding:.95rem 0 .95rem 2.6rem;position:relative;border-bottom:1px solid var(--rule)}
+.steps li:last-child{border-bottom:0}
+.steps li::before{
+  content:counter(s);position:absolute;inset-inline-start:0;top:1.05rem;
+  width:1.7rem;height:1.7rem;margin-inline-start:-.85rem;
+  background:var(--khaki);color:var(--paper);
+  display:grid;place-items:center;border-radius:50%;
+  font-family:var(--f-mono);font-size:.8rem;line-height:1;
+}
+.steps b{font-weight:600}
+.steps span{display:block;color:var(--ink-2);font-size:.94rem}
+
+/* ── ราคา / ดาวน์โหลด ──────────────────────────── */
+.slip{
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:1px;
+  background:var(--rule-2);border:1px solid var(--rule-2);
+  box-shadow:0 18px 40px -32px var(--shadow);
+}
+.slip > div{background:var(--card);padding:clamp(1.3rem,3.4vw,2.1rem)}
+.price{font-family:var(--f-display);font-weight:700;font-size:clamp(2.6rem,8vw,4rem);line-height:1;color:var(--ink);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--f-body);font-size:1rem;font-weight:500;color:var(--ink-3);letter-spacing:0}
+.incl{margin:1.3rem 0 0;padding:0;list-style:none;display:grid;gap:.5rem}
+.incl li{padding-inline-start:1.5rem;position:relative;color:var(--ink-2);font-size:.95rem}
+.incl li::before{content:"";position:absolute;inset-inline-start:0;top:.62em;width:.62rem;height:.62rem;border-inline-start:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
+.dl-meta{display:grid;gap:.4rem;margin:1.2rem 0 0;font-family:var(--f-mono);font-size:.82rem;color:var(--ink-3)}
+.dl-meta div{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px dotted var(--rule);padding-bottom:.3rem}
+.dl-meta div:last-child{border-bottom:0}
+@media (max-width:760px){.slip{grid-template-columns:1fr}}
+
+/* ── กล่องเตือน ────────────────────────────────── */
+.notice{border:1px solid var(--rule-2);border-inline-start:4px solid var(--khaki);background:var(--paper-2);padding:clamp(1.1rem,3vw,1.6rem);margin-top:1.6rem}
+.notice h3{margin:0 0 .6rem;font-size:1rem;font-weight:600}
+.notice p{margin:0 0 .6rem;color:var(--ink-2);font-size:.95rem;max-width:var(--measure)}
+.notice ol{margin:0;padding-inline-start:1.3rem;color:var(--ink-2);font-size:.95rem;display:grid;gap:.35rem}
+.notice kbd{font-family:var(--f-mono);font-size:.85em;background:var(--card);border:1px solid var(--rule-2);padding:.05em .4em}
+
+/* ── คำถาม ─────────────────────────────────────── */
+details{border-bottom:1px solid var(--rule);padding:.2rem 0}
+details summary{cursor:pointer;padding:.85rem 0;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";font-family:var(--f-mono);color:var(--khaki);font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 1rem;color:var(--ink-2);max-width:var(--measure);font-size:.96rem}
+
+/* ── บล็อกลงชื่อ / ติดต่อ ──────────────────────── */
+.sign{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.sign a,.sign div{background:var(--card);padding:1.4rem clamp(1.1rem,3vw,1.6rem);text-decoration:none;color:inherit;display:grid;gap:.3rem;transition:background .12s ease}
+.sign a:hover{background:var(--paper-2)}
+.sign dt{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.sign dd{margin:0;font-size:1.12rem;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+
+footer{border-top:1px solid var(--rule);padding-block:2rem;background:var(--paper-2)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:space-between;align-items:center;font-size:.85rem;color:var(--ink-3);font-family:var(--f-mono)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  .btn:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="crest"><span>บน</span>โปรแกรมเบิกน้ำมัน</div>
+    <nav>
+      <a href="#docs">เอกสารที่ได้</a>
+      <a href="#how">วิธีใช้</a>
+      <a href="#price">ราคา</a>
+      <a href="#faq">คำถาม</a>
+      <a href="#contact">ติดต่อ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="memo">
+  <div class="wrap">
+    <div class="memo-sheet">
+      <p class="memo-kicker">บันทึกข้อความ</p>
+      <dl class="memo-rows">
+        <div class="memo-row"><dt>ส่วนราชการ</dt><dd>สถานีตำรวจภูธร<b> ทุกจังหวัดทั่วประเทศ</b></dd></div>
+        <div class="memo-row"><dt>เรื่อง</dt><dd>ทำเอกสารเบิกน้ำมันประจำเดือน <b>ครบ 7 ชนิด</b> จากการคีย์ครั้งเดียว</dd></div>
+        <div class="memo-row"><dt>เรียน</dt><dd>เจ้าหน้าที่พัสดุ · รอง สว.(ป.) · หัวหน้าสถานี</dd></div>
+      </dl>
+
+      <h1>เลิกพิมพ์เอกสารเบิกน้ำมันทีละใบ</h1>
+      <p class="lede">
+        คีย์ใบเสร็จน้ำมันของเดือนนั้นครั้งเดียว โปรแกรมออกเอกสารให้ครบทั้งชุด
+        ตั้งแต่ผนวก 3/5/6 ไปจนถึงหนังสือส่งจังหวัด เป็นไฟล์ Word และ Excel
+        ที่เปิดแก้ต่อได้ ชื่อ สภ. ยศ ตำแหน่ง วันที่ และเลขที่หนังสือ เปลี่ยนตามโรงพักของคุณเองทั้งหมด
+      </p>
+
+      <div class="cta-row">
+        <a class="btn" href="BikNamman-v8.exe" download>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13"/><path d="m6.5 11.5 5.5 5.5 5.5-5.5"/><path d="M4 20h16"/></svg>
+          ดาวน์โหลดโปรแกรม
+        </a>
+        <a class="btn btn-2" href="#price">ราคาและวิธีสั่งซื้อ</a>
+        <span class="cta-note">Windows · 18 MB · ไฟล์เดียว ไม่ต้องติดตั้ง</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">ทำไม</div>
+      <div>
+        <h2>งานเดิม 7 ไฟล์ พิมพ์ทับของเดือนที่แล้ว</h2>
+        <p>เอกสารเบิกน้ำมันของแต่ละเดือนต่างกันแค่ตัวเลขกับวันที่ แต่ต้องไล่แก้ทุกไฟล์ทีละจุด
+           พลาดจุดเดียวก็ต้องส่งกลับมาแก้ใหม่</p>
+      </div>
+    </div>
+    <div class="compare">
+      <div class="now">
+        <h3>ทำมือแบบเดิม</h3>
+        <ul>
+          <li>เปิดไฟล์เดือนที่แล้วมาพิมพ์ทับ ทีละไฟล์ 7 ไฟล์</li>
+          <li>เดือน วันที่ ปี พ.ศ. ต้องไล่แก้ทุกหน้า ตกหล่นง่าย</li>
+          <li>เฉลี่ยยอดเงินให้ลงตัวเองด้วยเครื่องคิดเลข</li>
+          <li>ย้ายโรงพักหรือเปลี่ยนผู้ลงนามที ต้องรื้อทั้งชุด</li>
+          <li>ยอดในผนวก 7 กับหนังสือส่งจังหวัดไม่ตรงกัน</li>
+        </ul>
+      </div>
+      <div class="then">
+        <h3>ใช้โปรแกรมนี้</h3>
+        <ul>
+          <li>เลือกเดือน กรอกยอดที่ได้รับจัดสรร กดปุ่มเดียว</li>
+          <li>วันที่ เดือน ปี พ.ศ. และวันสุดท้ายของเดือน คำนวณให้เอง</li>
+          <li>เฉลี่ยยอด ซอยใบเสร็จ และจัดวันเติมให้อัตโนมัติ</li>
+          <li>ตั้งค่าโรงพักครั้งเดียว ใช้ได้ทุกเดือนต่อจากนั้น</li>
+          <li>ทุกไฟล์คิดจากตัวเลขชุดเดียวกัน ยอดตรงกันเสมอ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="docs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">ผลลัพธ์</div>
+      <div>
+        <h2>เอกสารที่ได้จากการกดครั้งเดียว</h2>
+        <p>เลือกติ๊กเฉพาะไฟล์ที่โรงพักใช้ก็ได้ ทุกไฟล์เป็น .docx และ .xlsx เปิดแก้ต่อใน Word / Excel ได้ตามปกติ</p>
+      </div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <caption>ชุดเอกสารประจำเดือน</caption>
+        <thead>
+          <tr><th scope="col">แบบ / ผนวก</th><th scope="col">เอกสาร</th><th scope="col">ไฟล์ที่ได้</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="form">ผนวก 3 / 5 / 6</td><td class="doc">เบิกน้ำมันรวม</td><td class="file">เบิกน้ำมัน_&lt;เดือน&gt;.docx</td></tr>
+          <tr><td class="form">ผนวก 7 + 8</td><td class="doc">ทะเบียนคุม และแจ้งยอดการใช้</td><td class="file">ผนวก_&lt;เดือน&gt;.xlsx</td></tr>
+          <tr><td class="form">—</td><td class="doc">หนังสือส่งจังหวัด</td><td class="file">ส่งจังหวัด_&lt;เดือน&gt;.docx</td></tr>
+          <tr><td class="form">—</td><td class="doc">คำสั่งแต่งตั้งผู้ดูแลรถ</td><td class="file">คำสั่งแต่งตั้งดูแลรถ_&lt;เดือน&gt;.docx</td></tr>
+          <tr><td class="form">—</td><td class="doc">รายละเอียดการซ่อมบำรุง</td><td class="file">ซ่อม_&lt;เดือน&gt;.xlsx</td></tr>
+          <tr><td class="form">—</td><td class="doc">ใบแจ้งยอดรายคัน</td><td class="file">ใบแจ้งยอด_&lt;เดือน&gt;.xlsx</td></tr>
+          <tr><td class="form">แบบ 3</td><td class="doc">ใบขออนุญาตใช้รถ</td><td class="file">ขอใช้รถ_&lt;เดือน&gt;.docx</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">วิธีใช้</div>
+      <div>
+        <h2>ตั้งค่าครั้งเดียว แล้วเดือนต่อไปใช้เวลาไม่กี่นาที</h2>
+        <p>หน้าตั้งค่าส่วนใหญ่เป็นการเลือกจากรายการ ไม่ต้องพิมพ์เอง</p>
+      </div>
+    </div>
+    <ol class="steps">
+      <li><b>ตั้งค่าโรงพัก</b><span>เลือกจังหวัด → อำเภอ → ตำบล โปรแกรมเติมตำรวจภูธรภาคและรหัสไปรษณีย์ให้เอง เหลือกรอกเองแค่เบอร์โทรกับเลขหนังสือ</span></li>
+      <li><b>ใส่ทะเบียนรถและผู้ใช้รถ</b><span>ประเภทรถ ยศ ชื่อ ตำแหน่ง ทะเบียน เชื้อเพลิง เก็บอยู่ในโปรแกรม ไม่ต้องมีไฟล์ Excel แยก</span></li>
+      <li><b>เลือกเดือนและกรอกยอด</b><span>ใส่เล่มที่/เลขที่ใบสั่งจ่าย และยอดรวมที่ได้รับจัดสรร แล้วกดเฉลี่ยอัตโนมัติ</span></li>
+      <li><b>ตรวจตัวเลขรายคน</b><span>แก้ยอดหรือวันที่ของใครเป็นรายคนได้ ก่อนสั่งพิมพ์</span></li>
+      <li><b>กดสร้างเอกสาร</b><span>เลือกโฟลเดอร์ปลายทาง โปรแกรมเปิดโฟลเดอร์ให้ทันทีที่เสร็จ</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="feats">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">รายละเอียด</div>
+      <div>
+        <h2>สิ่งที่โปรแกรมคิดให้เอง</h2>
+        <p>ส่วนที่เสียเวลาที่สุดตอนทำมือ คือส่วนที่โปรแกรมจัดการให้ทั้งหมด</p>
+      </div>
+    </div>
+    <div class="feats">
+      <div class="feat">
+        <div class="num">77 / 930 / 7,452</div>
+        <h3>จังหวัด อำเภอ ตำบล</h3>
+        <p>เลือกไล่ลงมาเป็นชั้น รหัสไปรษณีย์และตำรวจภูธรภาคเติมให้อัตโนมัติ</p>
+      </div>
+      <div class="feat">
+        <div class="num">ยศ · ตำแหน่ง</div>
+        <h3>เขียนเต็มให้เอง</h3>
+        <p>กรอกแค่ยศย่อ เช่น พ.ต.อ. โปรแกรมเขียน “พันตำรวจเอก” และ “ผู้กำกับการสถานีตำรวจภูธร…” ในเอกสารให้เอง</p>
+      </div>
+      <div class="feat">
+        <div class="num">10 / 35</div>
+        <h3>กม. ต่อลิตร</h3>
+        <p>คิดระยะทางที่วิ่งได้จากเงินที่เติม รถยนต์ 10 · จักรยานยนต์ 35 กม./ลิตร ปัดเป็นจำนวนเต็ม</p>
+      </div>
+      <div class="feat">
+        <div class="num">฿1,500</div>
+        <h3>เฉลี่ยยอดให้ลงตัว</h3>
+        <p>แบ่งยอดที่ได้รับจัดสรรให้ทุกคัน ซอยเป็นใบเสร็จ และไล่วันเติมให้ โดยจักรยานยนต์ไม่เกิน 1,500 บาท/เดือน</p>
+      </div>
+      <div class="feat">
+        <div class="num">พ.ศ.</div>
+        <h3>วันที่ไทยทั้งชุด</h3>
+        <p>เดือนที่เบิก เดือนรายงาน เดือนขออนุมัติ และวันสุดท้ายของเดือน คำนวณต่อกันให้ครบทุกไฟล์</p>
+      </div>
+      <div class="feat">
+        <div class="num">1 ไฟล์</div>
+        <h3>ไม่ต้องติดตั้ง</h3>
+        <p>ดับเบิลคลิกไฟล์เดียวใช้ได้เลย ไม่ต้องลง Python ไม่ต้องแก้ทะเบียนเครื่อง</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">ราคา</div>
+      <div>
+        <h2>ราคาเดียว ต่อโรงพัก ต่อปี</h2>
+        <p>ดาวน์โหลดมาลองก่อนได้ ตัวโปรแกรมเปิดใช้งานเมื่อได้รับสิทธิ์จากผู้จำหน่าย</p>
+      </div>
+    </div>
+    <div class="slip">
+      <div>
+        <div class="price">2,000<small> บาท / ปี / โรงพัก</small></div>
+        <ul class="incl">
+          <li>ใช้งานได้ 1 ปีเต็ม นับจากวันเปิดใช้งาน</li>
+          <li>เอกสารครบทั้ง 7 ชนิด ไม่มีแยกรุ่น ไม่มีเสริม</li>
+          <li>อัปเดตแม่แบบและตัวโปรแกรมภายในปีนั้น ไม่คิดเพิ่ม</li>
+          <li>ช่วยตั้งค่าโรงพักครั้งแรกให้ทาง Line</li>
+          <li>เปลี่ยนคอมพิวเตอร์ได้ แจ้งผู้จำหน่ายเพื่อย้ายเครื่อง</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-family:var(--f-display);font-size:1.25rem;font-weight:600;margin:0 0 .8rem">วิธีเริ่มใช้</h3>
+        <ol class="steps" style="border-inline-start-color:var(--rule-2)">
+          <li><b>ดาวน์โหลดและเปิดโปรแกรม</b><span>ดูหน้าตาและลองกดดูได้ก่อน</span></li>
+          <li><b>ทักมาทาง Line พร้อมชื่อ สภ.</b><span>แจ้งอีเมลที่จะใช้เปิดโปรแกรม</span></li>
+          <li><b>เปิดใช้งานด้วยอีเมล</b><span>รับรหัส 6 หลักทางอีเมล กรอกในโปรแกรม ใช้ได้ทันที</span></li>
+        </ol>
+        <div class="dl-meta">
+          <div><span>ระบบปฏิบัติการ</span><span>Windows 10 / 11</span></div>
+          <div><span>ขนาดไฟล์</span><span>18 MB</span></div>
+          <div><span>ต้องต่อเน็ต</span><span>เฉพาะตอนเปิดใช้งาน</span></div>
+        </div>
+        <div style="margin-top:1.4rem">
+          <a class="btn" href="BikNamman-v8.exe" download>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13"/><path d="m6.5 11.5 5.5 5.5 5.5-5.5"/><path d="M4 20h16"/></svg>
+            ดาวน์โหลดโปรแกรม
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice">
+      <h3>ถ้า Windows ขึ้นเตือนตอนเปิดครั้งแรก</h3>
+      <p>โปรแกรมที่ไม่ได้ซื้อใบรับรองผู้พัฒนา Windows จะขึ้นหน้าจอฟ้าว่า
+         “Windows protected your PC” เป็นเรื่องปกติ ไม่ใช่ไวรัส ทำตามนี้</p>
+      <ol>
+        <li>กด <kbd>ข้อมูลเพิ่มเติม</kbd> หรือ <kbd>More info</kbd></li>
+        <li>กด <kbd>เรียกใช้ต่อไป</kbd> หรือ <kbd>Run anyway</kbd></li>
+        <li>ครั้งต่อไปเปิดได้ตามปกติ ไม่ขึ้นเตือนอีก</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">คำถาม</div>
+      <div><h2>คำถามที่ถามกันบ่อย</h2></div>
+    </div>
+
+    <details open>
+      <summary>โรงพักผมไม่ใช่ลาดชะโดหรือบ้านแพรก ใช้ได้ไหม</summary>
+      <p>ใช้ได้ทุกโรงพักทั่วประเทศ ชื่อ สภ. อำเภอ จังหวัด ตำรวจภูธรภาค เบอร์โทร เลขหนังสือ
+         ชื่อและยศผู้ลงนามทุกตำแหน่ง เปลี่ยนตามที่ตั้งค่าไว้ทั้งหมด ไม่มีข้อความของโรงพักอื่นตกค้าง</p>
+    </details>
+
+    <details>
+      <summary>ต้องมี Word กับ Excel ไหม</summary>
+      <p>โปรแกรมสร้างไฟล์ .docx และ .xlsx ให้ ถ้าจะเปิดดูหรือสั่งพิมพ์ต้องมีโปรแกรมที่เปิดไฟล์สองชนิดนี้ได้
+         จะเป็น Microsoft Office, WPS Office หรือ LibreOffice ก็ได้ และควรลงฟอนต์
+         <b>TH SarabunPSK</b> ในเครื่อง เอกสารจะออกมาตรงตามแบบราชการ</p>
+    </details>
+
+    <details>
+      <summary>ต้องต่ออินเทอร์เน็ตตลอดเวลาไหม</summary>
+      <p>ไม่ต้อง ใช้เน็ตเฉพาะตอนเปิดใช้งานครั้งแรกและตอนต่ออายุเท่านั้น หลังจากนั้นทำเอกสารแบบออฟไลน์ได้ทั้งปี</p>
+    </details>
+
+    <details>
+      <summary>ย้ายไปลงคอมเครื่องใหม่ได้ไหม</summary>
+      <p>ได้ สิทธิ์ผูกกับเครื่องทีละ 1 เครื่องเพื่อกันการส่งต่อ ถ้าเปลี่ยนคอมพิวเตอร์
+         แจ้งผู้จำหน่ายทาง Line เพื่อปลดล็อกเครื่องเดิม แล้วเปิดใช้งานที่เครื่องใหม่ได้เลย ไม่มีค่าใช้จ่าย</p>
+    </details>
+
+    <details>
+      <summary>ถ้าลิขสิทธิ์หมดอายุ ไฟล์เก่าหายไหม</summary>
+      <p>ไม่หาย ไฟล์เอกสารที่สร้างไว้เป็นไฟล์ Word และ Excel ปกติในเครื่องของคุณ
+         โปรแกรมจะเตือนล่วงหน้า 30 วันก่อนหมดอายุ และหลังหมดอายุยังใช้ต่อได้อีก 7 วันเพื่อไม่ให้งานค้าง</p>
+    </details>
+
+    <details>
+      <summary>แม่แบบเอกสารของโรงพักผมไม่เหมือนกันเป๊ะ</summary>
+      <p>แจ้งมาได้ ส่งไฟล์แบบที่โรงพักใช้อยู่มาทาง Line ผู้จำหน่ายปรับแม่แบบให้ตรงกับที่ใช้จริงได้</p>
+    </details>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-label">ติดต่อ</div>
+      <div>
+        <h2>สั่งซื้อหรือสอบถาม</h2>
+        <p>ทักมาได้เลย แจ้งชื่อ สภ. และอีเมลที่จะใช้เปิดโปรแกรม</p>
+      </div>
+    </div>
+    <dl class="sign">
+      <a href="https://line.me/ti/p/~kaveek1169">
+        <dt>Line ID</dt><dd>kaveek1169</dd>
+      </a>
+      <a href="tel:0838054193">
+        <dt>โทรศัพท์</dt><dd>083-805-4193</dd>
+      </a>
+      <a href="mailto:kaveek1@gmail.com?subject=%E0%B8%AA%E0%B8%AD%E0%B8%9A%E0%B8%96%E0%B8%B2%E0%B8%A1%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%81%E0%B8%81%E0%B8%A3%E0%B8%A1%E0%B9%80%E0%B8%9A%E0%B8%B4%E0%B8%81%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B8%A1%E0%B8%B1%E0%B8%99">
+        <dt>อีเมล</dt><dd>kaveek1@gmail.com</dd>
+      </a>
+      <div>
+        <dt>ผู้จำหน่าย</dt><dd>น้อย</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>โปรแกรมเบิกน้ำมัน · รุ่น 8</span>
+    <span>ผู้จำหน่าย: น้อย · Line kaveek1169</span>
+  </div>
+</footer>
+
+</body>
+</html>
