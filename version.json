@@ -1,8 +1,8 @@
 {
-  "version": "8.1.1",
-  "url": "BikNamman-v8.exe",
-  "sha256": "47707e1046b745e9370cec03ed59920179ee5a30ae3035d125c6cca44ab5a488",
-  "size": 18854772,
+  "version": "1.0.0",
+  "url": "BikNamman.exe",
+  "sha256": "23c67bb475cc75ce7050b6165d195d5fdb161194cf58cbab5509a2b9b1cfb09b",
+  "size": 18102649,
   "released": "2026-09-11",
   "notes": "• แก้บั๊กเปิดโปรแกรมไม่ได้"
 }
