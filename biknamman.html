@@ -137,7 +137,7 @@
       <div class="step reveal">
         <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="16" y="20" width="88" height="56" rx="8" fill="#fff" stroke="#dde3ea" stroke-width="2"/><rect x="26" y="32" width="68" height="10" rx="5" fill="#eef1f5"/><text x="30" y="40" font-family="Kanit,sans-serif" font-size="7" fill="#6b7685">อีเมลของโรงพัก</text><rect x="26" y="50" width="40" height="14" rx="6" fill="#0d1f3c"/><text x="34" y="60" font-family="Kanit,sans-serif" font-size="8" fill="#fff">ถัดไป</text><circle cx="96" cy="26" r="10" fill="#1b7f4b"/><path d="M91 26l3.5 3.5 6-6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>กรอกอีเมล → รับรหัส 6 หลัก</h3>
-        <p>โปรแกรมพาไปขั้นตอนที่ถูกต้องให้เอง ยังไม่ซื้อก็ลองดูหน้าตาและกดเล่นได้ก่อน</p>
+        <p>โปรแกรมพาไปขั้นตอนที่ถูกต้องให้เอง ยังไม่ได้ซื้อจะพาไปหน้าสั่งซื้อทันที</p>
       </div>
     </div>
     <div class="notice reveal">
@@ -168,7 +168,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">สั่งซื้อ</span>
-      <div><h2>ลองก่อนได้ ถูกใจค่อยซื้อในโปรแกรม</h2><p>คิดเป็นรายปีต่อโรงพัก สอบถามราคาได้ทาง Line — ซื้อและต่ออายุได้ในตัวโปรแกรม สแกนจ่ายพร้อมเพย์ แล้วระบบเปิดใช้งานให้เอง</p></div>
+      <div><h2>สั่งซื้อและเปิดใช้งานได้ในโปรแกรม</h2><p>คิดเป็นรายปีต่อโรงพัก สอบถามราคาได้ทาง Line — ซื้อและต่ออายุได้ในตัวโปรแกรม สแกนจ่ายพร้อมเพย์ แล้วระบบเปิดใช้งานให้เอง</p></div>
     </div>
     <div class="price-grid">
       <div class="price-card reveal">
@@ -185,7 +185,12 @@
           <div><span>ขนาดไฟล์</span>17 MB (zip)</div>
           <div><span>ต้องต่อเน็ต</span>เฉพาะตอนเปิดใช้งาน</div>
         </div>
-        <div style="margin-top:20px"><a class="btn btn-gold" href="BikNamman.zip" download>⬇ ดาวน์โหลดโปรแกรม</a></div>
+        <div class="clip" id="clip">
+          <video id="introclip" src="intro.mp4" muted playsinline preload="metadata" aria-label="คลิปแนะนำโปรแกรมเบิกน้ำมัน"></video>
+          <button class="clip-btn" id="clipbtn" type="button" hidden>🔊 กดเพื่อเปิดเสียง</button>
+          <span class="clip-cap">คลิปสั้น ๆ 6 วินาที · เล่นอัตโนมัติ</span>
+        </div>
+        <div style="margin-top:16px"><a class="btn btn-gold" href="BikNamman.zip" download>⬇ ดาวน์โหลดโปรแกรม</a></div>
       </div>
       <div class="price-card reveal">
         <h3 style="color:#fff;font-size:1.2rem">วิธีสั่งซื้อ — ทำในโปรแกรมได้เลย</h3>
@@ -282,7 +287,7 @@
 </div>
 
 <script>
-window.GUIDE_TIPS={"top": "นี่คือโปรแกรมเบิกน้ำมัน โปรแกรมแรกของงานอำนวยการ กดดาวน์โหลดได้เลย หรือเลื่อนดูรายละเอียดก่อน", "fuel": "กรอกยอดครั้งเดียว ได้เอกสารครบทั้งชุด ยอดทุกฉบับตรงกันเสมอ ไม่ต้องกลัวถูกส่งกลับมาแก้", "install": "โหลดแล้วอย่าลืมแตก zip ก่อนนะครับ ถ้าเจอจอฟ้าของ Windows กด “ข้อมูลเพิ่มเติม” แล้ว “เรียกใช้ต่อไป” ได้เลย ไม่ใช่ไวรัส", "howto": "แค่ 3 ขั้นครับ ตั้งค่าโรงพักครั้งเดียว กรอกยอดของเดือน แล้วกดสร้าง ที่เหลือโปรแกรมทำให้", "price": "ยังไม่ซื้อก็โหลดมาลองดูหน้าตาก่อนได้ พอจะซื้อสแกนพร้อมเพย์ในโปรแกรม ระบบเปิดใช้งานให้เอง", "faq": "ถ้าคำถามไม่มีในนี้ ทัก Line kaveek1169 ได้เลยครับ", "contact": "แจ้งชื่อ สภ. กับอีเมลที่จะใช้เปิดโปรแกรมมาได้เลย ผมรออยู่ครับ"};
+window.GUIDE_TIPS={"top": "นี่คือโปรแกรมเบิกน้ำมัน โปรแกรมแรกของงานอำนวยการ กดดาวน์โหลดได้เลย หรือเลื่อนดูรายละเอียดก่อน", "fuel": "กรอกยอดครั้งเดียว ได้เอกสารครบทั้งชุด ยอดทุกฉบับตรงกันเสมอ ไม่ต้องกลัวถูกส่งกลับมาแก้", "install": "โหลดแล้วอย่าลืมแตก zip ก่อนนะครับ ถ้าเจอจอฟ้าของ Windows กด “ข้อมูลเพิ่มเติม” แล้ว “เรียกใช้ต่อไป” ได้เลย ไม่ใช่ไวรัส", "howto": "แค่ 3 ขั้นครับ ตั้งค่าโรงพักครั้งเดียว กรอกยอดของเดือน แล้วกดสร้าง ที่เหลือโปรแกรมทำให้", "price": "สั่งซื้อได้ในโปรแกรมเลยครับ สแกนพร้อมเพย์ แจ้งโอน แล้วระบบเปิดใช้งานให้เอง ไม่ต้องกรอกคีย์", "faq": "ถ้าคำถามไม่มีในนี้ ทัก Line kaveek1169 ได้เลยครับ", "contact": "แจ้งชื่อ สภ. กับอีเมลที่จะใช้เปิดโปรแกรมมาได้เลย ผมรออยู่ครับ"};
 </script>
 <script>
 /* โปรแกรมงานตำรวจ — สคริปต์ร่วมทุกหน้า
@@ -349,6 +354,33 @@ window.GUIDE_TIPS={"top": "นี่คือโปรแกรมเบิก�
   /* ── โผล่ทีละส่วนตอนเลื่อน ── */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(x){io.observe(x)});
+
+  /* ── คลิปแนะนำ: เล่นเอง 1 ครั้งตอนเลื่อนมาเจอ ── */
+  (function(){
+    var v=document.getElementById('introclip'), btn=document.getElementById('clipbtn');
+    if(!v) return;
+    var played=false;
+    function show(t){btn.textContent=t;btn.hidden=false}
+    function playOnce(){
+      if(played) return; played=true;
+      v.muted=true; v.currentTime=0;
+      var p=v.play();
+      if(p&&p.catch) p.catch(function(){show('▶ กดเพื่อเล่นคลิป')});
+      else show('🔊 กดเพื่อเปิดเสียง');
+      if(p&&p.then) p.then(function(){show('🔊 กดเพื่อเปิดเสียง')});
+    }
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting&&e.intersectionRatio>=.5){playOnce();io.disconnect();} });
+      },{threshold:[.5]});
+      io.observe(v);
+    }else{ playOnce(); }
+    v.addEventListener('ended',function(){show('↻ ดูอีกครั้ง (มีเสียง)')});
+    btn.addEventListener('click',function(){
+      v.muted=false; v.currentTime=0; v.play(); btn.hidden=true;
+    });
+    v.addEventListener('click',function(){ if(v.paused){v.muted=false;v.currentTime=0;v.play();btn.hidden=true;} });
+  })();
 
   /* ── รุ่นล่าสุดจาก version.json (ถ้าหน้ามี #vernote / #verfoot) ── */
   if(document.getElementById('vernote')||document.getElementById('verfoot')){
