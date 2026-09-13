@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="th" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>โปรแกรมเบิกน้ำมัน — งานอำนวยการ</title>
+<meta name="description" content="โปรแกรมเบิกน้ำมันสำหรับสถานีตำรวจ กรอกยอดครั้งเดียว ได้เอกสารเบิกน้ำมันประจำเดือนครบชุด ถูกแบบราชการ 2,000 บาท/ปี/โรงพัก">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="badge" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l14 5v10c0 9-6 15-14 19C12 33 6 27 6 18V8l14-5z" fill="#c9a227"/><path d="M20 7l10 3.6V18c0 7-4.4 11.6-10 14.6C14.4 29.6 10 25 10 18v-7.4L20 7z" fill="#0d1f3c"/><path d="M20 12l1.9 4h4.2l-3.4 2.6 1.3 4.2L20 20.4l-4 2.4 1.3-4.2-3.4-2.6h4.2z" fill="#c9a227"/></svg> โปรแกรมงานตำรวจ</a>
+    <a class="back" href="index.html">← หน้ารวมทุกสายงาน</a>
+    <div class="nav-links"><a href="#fuel">ข้อดี</a><a href="#install">วิธีโหลด</a><a href="#howto">วิธีใช้</a><a href="#price">ราคา</a><a href="#faq">คำถาม</a><a href="#contact">ติดต่อ</a></div>
+    <a class="btn btn-gold" href="BikNamman.zip" download>ดาวน์โหลด</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">หน้ารวม</a> › งานอำนวยการ › โปรแกรมเบิกน้ำมัน</div>
+    <div class="slides" style="min-height:0;position:static">
+      <section class="slide active" style="position:static">
+        <div>
+          <span class="slide-kicker">● งานอำนวยการ · พร้อมใช้งาน</span>
+          <h1>เลิกพิมพ์เอกสาร<br>เบิกน้ำมัน<em>ทีละใบ</em></h1>
+          <p class="lede">กรอกยอดของเดือนนั้นครั้งเดียว ได้เอกสารเบิกน้ำมันประจำเดือนครบทั้งชุด
+            ถูกแบบราชการ ยอดตรงกันทุกฉบับ พร้อมพิมพ์ส่ง — ชื่อ สภ. ผู้ลงนาม และวันที่
+            เปลี่ยนตามโรงพักของคุณเองทั้งหมด</p>
+          <div class="cta">
+            <a class="btn btn-gold" href="BikNamman.zip" download>⬇ ดาวน์โหลดโปรแกรมเบิกน้ำมัน</a>
+            <a class="btn btn-ghost" href="#price">ราคาและวิธีสั่งซื้อ</a>
+            <span class="note" id="vernote">Windows 10 / 11 · ไฟล์ zip 17 MB · ไม่ต้องติดตั้ง</span>
+          </div>
+        </div>
+        <div class="slide-art">
+          <svg viewBox="0 0 320 320" aria-hidden="true">
+            <circle class="ring" cx="160" cy="160" r="140" fill="none" stroke="rgba(201,162,39,.35)" stroke-width="2" stroke-dasharray="6 10"/>
+            <circle cx="160" cy="160" r="112" fill="#132a4f" stroke="rgba(255,255,255,.12)"/>
+            <g transform="translate(96 84)">
+              <rect x="0" y="0" width="128" height="160" rx="10" fill="#fff"/>
+              <rect x="14" y="18" width="70" height="8" rx="4" fill="#0d1f3c"/>
+              <rect x="14" y="36" width="100" height="6" rx="3" fill="#cfd6df"/>
+              <rect x="14" y="50" width="100" height="6" rx="3" fill="#cfd6df"/>
+              <rect x="14" y="64" width="72" height="6" rx="3" fill="#cfd6df"/>
+              <rect x="14" y="86" width="100" height="26" rx="6" fill="#f5e7b8"/>
+              <rect x="22" y="94" width="60" height="6" rx="3" fill="#c9a227"/>
+              <rect x="22" y="104" width="40" height="4" rx="2" fill="#c9a227"/>
+              <rect x="14" y="124" width="100" height="6" rx="3" fill="#cfd6df"/>
+              <rect x="14" y="138" width="56" height="6" rx="3" fill="#cfd6df"/>
+            </g>
+            <g transform="translate(200 200)">
+              <circle r="34" fill="#7a1f2b"/>
+              <path d="M-14 0l9 9 19-19" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <g font-family="Kanit,Sarabun,sans-serif" font-size="13" fill="#f5e7b8">
+              <text x="30" y="100">ชื่อ สภ.</text><text x="30" y="150">ผู้ลงนาม</text><text x="30" y="200">ทะเบียนรถ</text>
+              <text x="246" y="100">วันที่ พ.ศ.</text><text x="246" y="150">ครบชุด</text>
+            </g>
+          </svg>
+        </div>
+      </section>
+    </div>
+  </div>
+</header>
+<!-- ═══════════ <!-- ═══════════ โปรแกรมเบิกน้ำมัน ═══════════ -->
+<section class="sec product" id="fuel">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ข้อดี</span>
+      <div><h2>ทำไมโรงพักถึงเปลี่ยนมาใช้</h2>
+        <p>เอกสารเบิกน้ำมันของแต่ละเดือนต่างกันแค่ตัวเลขกับวันที่ แต่ต้องไล่แก้ทุกไฟล์ทีละจุด พลาดจุดเดียวก็ถูกส่งกลับมาแก้ใหม่</p></div>
+    </div>
+
+    <div class="two">
+      <div class="card bad reveal">
+        <h3>✕ ทำมือแบบเดิม</h3>
+        <ul>
+          <li>เปิดไฟล์เดือนที่แล้วมาพิมพ์ทับ ทีละไฟล์</li>
+          <li>เดือน วันที่ ปี พ.ศ. ต้องไล่แก้ทุกหน้า ตกหล่นง่าย</li>
+          <li>เฉลี่ยยอดเงินให้ลงตัวเองด้วยเครื่องคิดเลข</li>
+          <li>ย้ายโรงพักหรือเปลี่ยนผู้ลงนามที ต้องรื้อทั้งชุด</li>
+          <li>ยอดในแต่ละฉบับไม่ตรงกัน ถูกส่งกลับมาแก้</li>
+        </ul>
+      </div>
+      <div class="card good reveal">
+        <h3>✓ ใช้โปรแกรมนี้</h3>
+        <ul>
+          <li>เลือกเดือน กรอกยอดที่ได้รับจัดสรร กดปุ่มเดียว</li>
+          <li>วันที่ เดือน ปี พ.ศ. และวันสุดท้ายของเดือน คำนวณให้เอง</li>
+          <li>เฉลี่ยยอด ซอยใบเสร็จ และจัดวันเติมให้อัตโนมัติ</li>
+          <li>ตั้งค่าโรงพักครั้งเดียว ใช้ได้ทุกเดือนต่อจากนั้น</li>
+          <li>ทุกไฟล์คิดจากตัวเลขชุดเดียวกัน ยอดตรงกันเสมอ</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin:38px 0 12px;color:var(--navy);font-size:1.25rem" class="reveal">ข้อดีที่โรงพักได้ทันที</h3>
+    <div class="feats">
+      <div class="feat reveal"><div class="num">ไม่กี่นาที</div><h3>จบงานทั้งเดือน</h3><p>จากที่เคยนั่งพิมพ์ทับทีละไฟล์เป็นวัน เหลือแค่กรอกยอดแล้วกดปุ่มเดียว</p></div>
+      <div class="feat reveal"><div class="num">ตรงกัน</div><h3>ทุกฉบับยอดเดียวกัน</h3><p>เอกสารทั้งชุดคิดจากตัวเลขชุดเดียว ไม่มีอีกแล้วที่ยอดในแต่ละหน้าไม่ตรงกันจนถูกส่งกลับ</p></div>
+      <div class="feat reveal"><div class="num">ครั้งเดียว</div><h3>ตั้งค่าโรงพักแล้วจบ</h3><p>ชื่อ สภ. ผู้ลงนาม ทะเบียนรถ ตั้งครั้งเดียว เดือนต่อ ๆ ไปไม่ต้องกรอกซ้ำ ย้ายผู้ลงนามก็แก้จุดเดียว</p></div>
+      <div class="feat reveal"><div class="num">ถูกแบบ</div><h3>ตรงตามแบบราชการ</h3><p>วันที่ เดือน ปี พ.ศ. ยศและตำแหน่งเขียนเต็ม จัดหน้าตามแบบที่ใช้จริงในโรงพัก พร้อมพิมพ์ส่งได้เลย</p></div>
+      <div class="feat reveal"><div class="num">ทุกโรงพัก</div><h3>ใช้ได้ทั่วประเทศ</h3><p>เลือกจังหวัด อำเภอ ตำบล จากรายการ ไม่มีข้อความของโรงพักอื่นตกค้าง</p></div>
+      <div class="feat reveal"><div class="num">อัปเดตเอง</div><h3>มีรุ่นใหม่ก็กดปุ่มเดียว</h3><p>โปรแกรมแจ้งเตือนและอัปเดตให้เองในตัว ไม่ต้องกลับมาโหลดใหม่ แม่แบบเปลี่ยนก็ตามให้ภายในปี</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ <!-- ═══════════ วิธีดาวน์โหลด ═══════════ -->
+<section class="sec" id="install">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ดาวน์โหลด</span>
+      <div><h2>วิธีดาวน์โหลดและเปิดใช้ครั้งแรก</h2><p>4 ขั้น ใช้เวลาไม่ถึง 3 นาที ไม่ต้องติดตั้ง ไม่ต้องลงโปรแกรมเสริม</p></div>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="20" y="10" width="80" height="60" rx="8" fill="#132a4f"/><rect x="28" y="18" width="64" height="40" rx="4" fill="#eef1f5"/><path d="M60 26v18M52 38l8 8 8-8" stroke="#7a1f2b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="44" y="72" width="32" height="6" rx="3" fill="#132a4f"/><rect x="34" y="82" width="52" height="8" rx="4" fill="#c9a227"/></svg></div>
+        <h3>กดดาวน์โหลด</h3>
+        <p>ได้ไฟล์ <b>BikNamman.zip</b> (17 MB) ไว้ในโฟลเดอร์ Downloads</p>
+      </div>
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><path d="M22 30h30l8 8h38v46H22z" fill="#c9a227"/><path d="M22 44h76v40H22z" fill="#e2bd4a"/><rect x="48" y="52" width="24" height="26" rx="3" fill="#fff"/><path d="M60 52v26M54 58h12M54 66h12M54 74h12" stroke="#132a4f" stroke-width="2"/><path d="M86 22l10 10-10 10" fill="none" stroke="#7a1f2b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>แตกไฟล์ zip</h3>
+        <p>คลิกขวาที่ไฟล์ → <kbd>Extract All</kbd> หรือ <kbd>แยกทั้งหมด</kbd> จะได้ <b>โปรแกรมเบิกน้ำมัน.exe</b> กับ <b>อ่านก่อน.txt</b> ลากไฟล์โปรแกรมไปวางที่เดสก์ท็อป</p>
+      </div>
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="14" y="12" width="92" height="70" rx="8" fill="#1b3a6b"/><rect x="24" y="24" width="72" height="8" rx="4" fill="#fff" opacity=".9"/><rect x="24" y="38" width="52" height="6" rx="3" fill="#fff" opacity=".5"/><rect x="24" y="60" width="30" height="12" rx="4" fill="#c9a227"/><rect x="60" y="60" width="30" height="12" rx="4" fill="#fff" opacity=".35"/><path d="M30 66h18" stroke="#0d1f3c" stroke-width="2"/></svg></div>
+        <h3>ถ้า Windows ขึ้นจอฟ้าเตือน</h3>
+        <p>กด <kbd>ข้อมูลเพิ่มเติม</kbd> (More info) แล้วกด <kbd>เรียกใช้ต่อไป</kbd> (Run anyway) — เป็นเรื่องปกติของโปรแกรมที่ไม่ได้ซื้อใบรับรอง ไม่ใช่ไวรัส ครั้งต่อไปไม่ถามอีก</p>
+      </div>
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="16" y="20" width="88" height="56" rx="8" fill="#fff" stroke="#dde3ea" stroke-width="2"/><rect x="26" y="32" width="68" height="10" rx="5" fill="#eef1f5"/><text x="30" y="40" font-family="Kanit,sans-serif" font-size="7" fill="#6b7685">อีเมลของโรงพัก</text><rect x="26" y="50" width="40" height="14" rx="6" fill="#0d1f3c"/><text x="34" y="60" font-family="Kanit,sans-serif" font-size="8" fill="#fff">ถัดไป</text><circle cx="96" cy="26" r="10" fill="#1b7f4b"/><path d="M91 26l3.5 3.5 6-6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>กรอกอีเมล → รับรหัส 6 หลัก</h3>
+        <p>โปรแกรมพาไปขั้นตอนที่ถูกต้องให้เอง ยังไม่ซื้อก็ลองดูหน้าตาและกดเล่นได้ก่อน</p>
+      </div>
+    </div>
+    <div class="notice reveal">
+      <h3>ทำไมถึงเป็นไฟล์ zip</h3>
+      <p style="margin:0">เบราว์เซอร์มักบล็อกการดาวน์โหลดไฟล์ .exe ที่ไม่มีลายเซ็นผู้พัฒนา ไฟล์ zip โหลดผ่านได้ง่ายกว่า ข้างในเป็นโปรแกรมตัวเดียวกัน
+      และเมื่อมีรุ่นใหม่ โปรแกรมจะแจ้งเตือนและอัปเดตให้เองจากปุ่ม “อัปเดตโปรแกรม” ไม่ต้องกลับมาโหลดที่นี่อีก</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ <!-- ═══════════ วิธีใช้ ═══════════ -->
+<section class="sec product" id="howto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">วิธีใช้</span>
+      <div><h2>ใช้งานแค่ 3 ขั้น</h2><p>ตั้งค่าครั้งเดียว เดือนต่อไปใช้เวลาไม่กี่นาที</p></div>
+    </div>
+    <div class="timeline">
+      <div class="tl reveal"><div class="n">1</div><div><h3>ตั้งค่าโรงพักครั้งเดียว</h3><p>เลือกจังหวัด อำเภอ ตำบล จากรายการ ใส่ผู้ลงนามและทะเบียนรถของโรงพัก — ทำครั้งแรกครั้งเดียว</p></div></div>
+      <div class="tl reveal"><div class="n">2</div><div><h3>กรอกยอดของเดือนนั้น</h3><p>เลือกเดือน ใส่ยอดที่ได้รับจัดสรร โปรแกรมเฉลี่ยให้ทุกคันและจัดวันให้เอง แก้รายคันได้ก่อนพิมพ์</p></div></div>
+      <div class="tl reveal"><div class="n">3</div><div><h3>กดสร้างเอกสาร</h3><p>เลือกโฟลเดอร์ปลายทาง ได้เอกสารครบทั้งชุดเป็นไฟล์ Word / Excel เปิดแก้ต่อได้ตามปกติ</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ <!-- ═══════════ ราคา ═══════════ -->
+<section class="sec price" id="price">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ราคา</span>
+      <div><h2>ราคาเดียว ต่อโรงพัก ต่อปี</h2><p>ดาวน์โหลดมาลองก่อนได้ ซื้อและต่ออายุได้ในตัวโปรแกรม — สแกนจ่ายพร้อมเพย์ แล้วระบบเปิดใช้งานให้เอง</p></div>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <div class="price-big">2,000 บาท <small>/ ปี / โรงพัก</small></div>
+        <ul>
+          <li>ใช้งานได้ 1 ปีเต็ม นับจากวันเปิดใช้งาน</li>
+          <li>เอกสารเบิกน้ำมันครบทั้งชุด ไม่มีแยกรุ่น ไม่มีเสริม</li>
+          <li>อัปเดตแม่แบบและตัวโปรแกรมภายในปีนั้น ไม่คิดเพิ่ม</li>
+          <li>ช่วยตั้งค่าโรงพักครั้งแรกให้ทาง Line</li>
+          <li>เปลี่ยนคอมพิวเตอร์ได้ แจ้งผู้จำหน่ายเพื่อย้ายเครื่อง</li>
+        </ul>
+        <div class="dl-meta">
+          <div><span>ระบบปฏิบัติการ</span>Windows 10 / 11</div>
+          <div><span>ขนาดไฟล์</span>17 MB (zip)</div>
+          <div><span>ต้องต่อเน็ต</span>เฉพาะตอนเปิดใช้งาน</div>
+        </div>
+        <div style="margin-top:20px"><a class="btn btn-gold" href="BikNamman.zip" download>⬇ ดาวน์โหลดโปรแกรม</a></div>
+      </div>
+      <div class="price-card reveal">
+        <h3 style="color:#fff;font-size:1.2rem">วิธีสั่งซื้อ — ทำในโปรแกรมได้เลย</h3>
+        <ol class="buy-steps">
+          <li><span class="k">1</span><div><b>ดาวน์โหลด แตกไฟล์ แล้วเปิดโปรแกรม</b><span>กรอกอีเมลของโรงพัก ถ้ายังไม่เคยซื้อ โปรแกรมพาไปหน้าซื้อให้เอง</span></div></li>
+          <li><span class="k">2</span><div><b>สแกน QR พร้อมเพย์ในโปรแกรม</b><span>ยอด 2,000 บาทฝังใน QR แล้ว กรอกชื่อ สภ. แล้วกด “แจ้งโอนเงิน”</span></div></li>
+          <li><span class="k">3</span><div><b>รอสักครู่ — เปิดใช้งานให้เอง</b><span>ผู้จำหน่ายตรวจยอดแล้วอนุมัติ โปรแกรมเปิดใช้งานเองทันที ไม่ต้องกรอกคีย์</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ <!-- ═══════════ FAQ ═══════════ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-label">คำถาม</span><div><h2>คำถามที่ถามกันบ่อย</h2></div></div>
+    <details class="reveal"><summary>ใช้ได้กับโรงพักผมไหม</summary><p>ใช้ได้ทุกโรงพักทั่วประเทศ ชื่อ สภ. อำเภอ จังหวัด ตำรวจภูธรภาค เบอร์โทร เลขหนังสือ ชื่อและยศผู้ลงนามทุกตำแหน่ง เปลี่ยนตามที่ตั้งค่าไว้ทั้งหมด ไม่มีข้อความของโรงพักอื่นตกค้าง</p></details>
+    <details class="reveal"><summary>ต้องมี Word กับ Excel ไหม</summary><p>โปรแกรมสร้างไฟล์ .docx และ .xlsx ให้ ถ้าจะเปิดดูหรือสั่งพิมพ์ต้องมีโปรแกรมที่เปิดไฟล์สองชนิดนี้ได้ จะเป็น Microsoft Office, WPS Office หรือ LibreOffice ก็ได้ และควรลงฟอนต์ TH SarabunPSK / TH SarabunIT๙ ในเครื่อง เอกสารจะออกมาตรงตามแบบราชการ</p></details>
+    <details class="reveal"><summary>ต้องต่ออินเทอร์เน็ตตลอดเวลาไหม</summary><p>ไม่ต้อง ใช้เน็ตเฉพาะตอนเปิดใช้งานครั้งแรก ตอนต่ออายุ และตอนกดอัปเดตโปรแกรมเท่านั้น หลังจากนั้นทำเอกสารแบบออฟไลน์ได้ทั้งปี</p></details>
+    <details class="reveal"><summary>ย้ายไปลงคอมเครื่องใหม่ได้ไหม</summary><p>ได้ สิทธิ์ผูกกับเครื่องทีละ 1 เครื่องเพื่อกันการส่งต่อ ถ้าเปลี่ยนคอมพิวเตอร์ แจ้งผู้จำหน่ายทาง Line เพื่อปลดล็อกเครื่องเดิม แล้วเปิดใช้งานที่เครื่องใหม่ได้เลย ไม่มีค่าใช้จ่าย</p></details>
+    <details class="reveal"><summary>ถ้าลิขสิทธิ์หมดอายุ ไฟล์เก่าหายไหม</summary><p>ไม่หาย ไฟล์เอกสารที่สร้างไว้เป็นไฟล์ Word และ Excel ปกติในเครื่องของคุณ โปรแกรมจะเตือนล่วงหน้า 30 วันก่อนหมดอายุ และหลังหมดอายุยังใช้ต่อได้อีก 7 วันเพื่อไม่ให้งานค้าง</p></details>
+    <details class="reveal"><summary>แม่แบบเอกสารของโรงพักผมไม่เหมือนกันเป๊ะ</summary><p>แจ้งมาได้ ส่งไฟล์แบบที่โรงพักใช้อยู่มาทาง Line ผู้จำหน่ายปรับแม่แบบให้ตรงกับที่ใช้จริงได้</p></details>
+  </div>
+</section>
+
+<!-- ═══════════ <!-- ═══════════ ติดต่อ ═══════════ -->
+<section class="sec product" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-label">ติดต่อ</span><div><h2>สั่งซื้อ สอบถาม หรือแจ้งความต้องการ</h2><p>ทักมาได้เลย แจ้งชื่อ สภ. และอีเมลที่จะใช้เปิดโปรแกรม</p></div></div>
+    <div class="contact reveal">
+      <div><span>Line ID</span><b>kaveek1169</b></div>
+      <div><span>โทรศัพท์</span><b>083-805-4193</b></div>
+      <div><span>อีเมล</span><b>kaveek1@gmail.com</b></div>
+      <div><span>ผู้จำหน่าย</span><b>น้อย</b></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>โปรแกรมงานตำรวจ · <span id="verfoot">โปรแกรมเบิกน้ำมัน รุ่น 1.0</span></span>
+    <span>ผู้จำหน่าย: น้อย · Line kaveek1169</span>
+  </div>
+</footer>
+<!-- ═══════════ <!-- ═══════════ ตัวการ์ตูนตำรวจแนะนำ "ส.ต.ท.อำนวย หัวคาด" (ต้นแบบวาดเอง) ═══════════ -->
+<div class="guide" id="guide">
+  <div class="bubble" id="bubble">
+    <button class="close" id="gclose" aria-label="ปิด">✕</button>
+    <b>ส.ต.ท.อำนวย หัวคาด — ผู้ช่วยแนะนำ</b>
+    <span id="gtext"></span><span class="cur"></span>
+  </div>
+  <svg class="officer" id="officer" viewBox="0 0 200 220" aria-hidden="true">
+    <!-- ลำตัว/เครื่องแบบสีกากี -->
+    <path d="M40 220c0-44 22-70 60-70s60 26 60 70z" fill="#8a7a4e"/>
+    <path d="M100 150l-16 20 16 44 16-44z" fill="#6f6139"/>
+    <path d="M100 152l-6 8 6 34 6-34z" fill="#3b2f1e"/>
+    <!-- อินทรธนู -->
+    <rect x="46" y="156" width="30" height="12" rx="4" fill="#6f6139"/><rect x="124" y="156" width="30" height="12" rx="4" fill="#6f6139"/>
+    <!-- บั้ง ส.ต.ท. 2 แถบ ที่ต้นแขนซ้าย -->
+    <path d="M40 186l12-8 12 8M40 196l12-8 12 8" fill="none" stroke="#c9a227" stroke-width="4" stroke-linejoin="round"/>
+    <!-- ป้ายชื่อ/เข็ม -->
+    <rect x="112" y="178" width="30" height="8" rx="2" fill="#f2f2f2"/><rect x="60" y="176" width="26" height="10" rx="2" fill="#c9a227"/>
+    <!-- คอ -->
+    <rect x="86" y="128" width="28" height="26" rx="8" fill="#e8b98f"/>
+    <!-- หัว -->
+    <ellipse cx="100" cy="98" rx="42" ry="46" fill="#f1c59d"/>
+    <path d="M58 100c0-18 8-30 20-36h44c12 6 20 18 20 36" fill="#2b2118"/>
+    <!-- หู -->
+    <ellipse cx="58" cy="104" rx="7" ry="9" fill="#e8b98f"/><ellipse cx="142" cy="104" rx="7" ry="9" fill="#e8b98f"/>
+    <!-- หมวกทรงหม้อตาล -->
+    <path d="M52 74c0-22 22-34 48-34s48 12 48 34l-6 4H58z" fill="#8a7a4e"/>
+    <path d="M50 76h100l4 6c0 5-26 9-54 9s-54-4-54-9z" fill="#2b2b2b"/>
+    <path d="M60 78c12 10 68 10 80 0" fill="none" stroke="#c9a227" stroke-width="3"/>
+    <path d="M52 74c10-6 86-6 96 0v4c-10 5-86 5-96 0z" fill="#3b3a36"/>
+    <!-- ตราหน้าหมวก (ดาวในวงกลม — วาดเอง) -->
+    <circle cx="100" cy="58" r="9" fill="#c9a227"/><path d="M100 51l2 4.5h4.8l-3.9 2.9 1.5 4.6-4.4-2.8-4.4 2.8 1.5-4.6-3.9-2.9h4.8z" fill="#7a1f2b"/>
+    <!-- คิ้ว ตา -->
+    <path d="M78 92c6-4 14-4 20 0M102 92c6-4 14-4 20 0" fill="none" stroke="#2b2118" stroke-width="3" stroke-linecap="round"/>
+    <g class="eye"><ellipse cx="88" cy="103" rx="5" ry="6" fill="#2b2118"/><circle cx="90" cy="101" r="1.6" fill="#fff"/></g>
+    <g class="eye"><ellipse cx="112" cy="103" rx="5" ry="6" fill="#2b2118"/><circle cx="114" cy="101" r="1.6" fill="#fff"/></g>
+    <!-- จมูก ปากยิ้ม -->
+    <path d="M100 108v8" stroke="#d9a07a" stroke-width="3" stroke-linecap="round"/>
+    <path d="M86 122c6 8 22 8 28 0" fill="none" stroke="#a5563f" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- แขนขวายกโบกมือ -->
+    <g class="hand">
+      <path d="M150 200c8-12 12-30 8-48" fill="none" stroke="#8a7a4e" stroke-width="18" stroke-linecap="round"/>
+      <circle cx="158" cy="146" r="13" fill="#f1c59d"/>
+      <path d="M150 138v-10M156 134v-12M162 135v-11M168 140v-8" stroke="#f1c59d" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <!-- แขนซ้าย -->
+    <path d="M50 200c-6-12-8-28-4-42" fill="none" stroke="#8a7a4e" stroke-width="18" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<script>
+window.GUIDE_TIPS={"top": "นี่คือโปรแกรมเบิกน้ำมัน โปรแกรมแรกของงานอำนวยการ กดดาวน์โหลดได้เลย หรือเลื่อนดูรายละเอียดก่อน", "fuel": "กรอกยอดครั้งเดียว ได้เอกสารครบทั้งชุด ยอดทุกฉบับตรงกันเสมอ ไม่ต้องกลัวถูกส่งกลับมาแก้", "install": "โหลดแล้วอย่าลืมแตก zip ก่อนนะครับ ถ้าเจอจอฟ้าของ Windows กด “ข้อมูลเพิ่มเติม” แล้ว “เรียกใช้ต่อไป” ได้เลย ไม่ใช่ไวรัส", "howto": "แค่ 3 ขั้นครับ ตั้งค่าโรงพักครั้งเดียว กรอกยอดของเดือน แล้วกดสร้าง ที่เหลือโปรแกรมทำให้", "price": "ยังไม่ซื้อก็โหลดมาลองดูหน้าตาก่อนได้ พอจะซื้อสแกนพร้อมเพย์ในโปรแกรม ระบบเปิดใช้งานให้เอง", "faq": "ถ้าคำถามไม่มีในนี้ ทัก Line kaveek1169 ได้เลยครับ", "contact": "แจ้งชื่อ สภ. กับอีเมลที่จะใช้เปิดโปรแกรมมาได้เลย ผมรออยู่ครับ"};
+</script>
+<script>
+/* โปรแกรมงานตำรวจ — สคริปต์ร่วมทุกหน้า
+   หน้าไหนมีส่วนไหน ก็ทำงานเฉพาะส่วนนั้น (เช็ค element ก่อนทุกครั้ง)
+   ข้อมูลที่แต่ละหน้ากำหนดเอง: window.LINES (สายงาน/โปรแกรม) · window.GUIDE_TIPS (คำพูดตัวการ์ตูน) */
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── สไลด์ (ถ้ามี #slides) ── */
+  var sl=document.getElementById('slides');
+  if(sl){
+    var slides=[].slice.call(sl.querySelectorAll('.slide')), dots=document.getElementById('dots'),
+        count=document.getElementById('count'), cur=0, timer=null;
+    slides.forEach(function(s,i){var b=document.createElement('button');b.className='dot';b.setAttribute('aria-label','สไลด์ '+(i+1));
+      b.innerHTML='<i></i>';b.addEventListener('click',function(){go(i,true)});dots.appendChild(b)});
+    var go=function(n,manual){
+      if(n===cur&&manual)return;
+      var prev=cur; cur=(n+slides.length)%slides.length;
+      if(prev!==cur){slides[prev].classList.remove('active'); slides[prev].classList.add('leaving');
+        setTimeout(function(){slides[prev].classList.remove('leaving')},600);}
+      slides[cur].classList.add('active');
+      [].forEach.call(dots.children,function(d,i){d.classList.toggle('active',i===cur);
+        d.style.setProperty('--dur',(slides[i].dataset.dur||6000)+'ms');
+        var bar=d.firstChild; bar.style.animation='none'; void bar.offsetWidth; bar.style.animation='';});
+      if(count)count.textContent=(cur+1)+' / '+slides.length;
+      schedule();
+    };
+    var schedule=function(){clearTimeout(timer); if(reduce)return; timer=setTimeout(function(){go(cur+1)},+slides[cur].dataset.dur||6000)};
+    document.getElementById('next').addEventListener('click',function(){go(cur+1,true)});
+    document.getElementById('prev').addEventListener('click',function(){go(cur-1,true)});
+    document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1,true);if(e.key==='ArrowLeft')go(cur-1,true)});
+    var sx=null;
+    sl.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+    sl.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)go(cur+(dx<0?1:-1),true);sx=null});
+    sl.addEventListener('mouseenter',function(){clearTimeout(timer)});
+    sl.addEventListener('mouseleave',schedule);
+    go(0);
+  }
+
+  /* ── สายงานและโปรแกรม (ถ้ามี #lines-grid) — ข้อมูลจาก window.LINES ── */
+  var ICONS={
+    admin:'<path d="M4 21V5a2 2 0 012-2h8a2 2 0 012 2v16"/><path d="M4 21h12"/><path d="M16 9h2a2 2 0 012 2v6a2 2 0 002 2 2 2 0 002-2v-7l-3-3"/><path d="M7 7h6v4H7z"/>',
+    patrol:'<path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/>',
+    inv:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/>',
+    inq:'<path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v6h6"/><path d="M9 13h6M9 17h6"/>',
+    traffic:'<rect x="8" y="2" width="8" height="20" rx="3"/><circle cx="12" cy="7" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="17" r="1.6"/>'
+  };
+  var grid=document.getElementById('lines-grid');
+  if(grid&&window.LINES){
+    window.LINES.forEach(function(L){
+      var n=L.programs.filter(function(p){return p.ready}).length;
+      var card=document.createElement('div'); card.className='line-card reveal'+(n?'':' soon');
+      var html='<div class="line-head"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+ICONS[L.icon]+'</svg></div>'+
+        '<h3>'+L.name+'<small>'+(n?('พร้อมใช้ '+n+' โปรแกรม'):'กำลังพัฒนา')+'</small></h3></div><ul class="progs">';
+      L.programs.forEach(function(p){
+        var tag='<span class="tag '+(p.ready?'ready">พร้อมใช้':'soon">เร็ว ๆ นี้')+'</span>';
+        var inner='<div><b>'+p.name+'</b><span>'+p.desc+(p.price?' · '+p.price:'')+'</span></div>'+tag;
+        html+= p.ready&&p.href ? '<li><a class="prog" href="'+p.href+'">'+inner+'</a></li>' : '<li><div class="prog soon">'+inner+'</div></li>';
+      });
+      card.innerHTML=html+'</ul>'; grid.appendChild(card);
+    });
+  }
+
+  /* ── โผล่ทีละส่วนตอนเลื่อน ── */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(x){io.observe(x)});
+
+  /* ── รุ่นล่าสุดจาก version.json (ถ้าหน้ามี #vernote / #verfoot) ── */
+  if(document.getElementById('vernote')||document.getElementById('verfoot')){
+    fetch('version.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(v){
+      if(!v||!v.version)return;
+      var mb=v.size?(' · ไฟล์ zip ~'+Math.round(v.size/1048576)+' MB'):'';
+      var a=document.getElementById('vernote'), b=document.getElementById('verfoot');
+      if(a)a.textContent='รุ่น '+v.version+(v.released?' · ออกเมื่อ '+v.released:'')+' · Windows 10 / 11'+mb;
+      if(b)b.textContent='โปรแกรมเบิกน้ำมัน รุ่น '+v.version;
+    }).catch(function(){});
+  }
+
+  /* ── ส.ต.ท.อำนวย หัวคาด: พิมพ์ทีละตัว เปลี่ยนข้อความตามส่วนที่เลื่อนถึง ── */
+  var guide=document.getElementById('guide'), tips=window.GUIDE_TIPS||{};
+  if(guide){
+    var gtext=document.getElementById('gtext'), curKey='', typing=null, secKey='top';
+    var say=function(key){
+      if(key===curKey||!tips[key])return; curKey=key;
+      var s=tips[key], i=0; clearInterval(typing); gtext.textContent='';
+      if(reduce){gtext.textContent=s;return}
+      typing=setInterval(function(){gtext.textContent=s.slice(0,++i); if(i>=s.length)clearInterval(typing)},22);
+    };
+    try{ if(localStorage.getItem('guideOff')==='1') guide.classList.add('hidden'); }catch(e){}
+    document.getElementById('gclose').addEventListener('click',function(){guide.classList.add('hidden');try{localStorage.setItem('guideOff','1')}catch(e){}});
+    document.getElementById('officer').addEventListener('click',function(){curKey='';say(secKey)});
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){secKey=e.target.id;say(secKey)}})},{rootMargin:'-40% 0px -50% 0px'});
+    Object.keys(tips).forEach(function(id){var n=document.getElementById(id);if(n)so.observe(n)});
+    say('top');
+  }
+})();
+</script>
+</body>
+</html>
