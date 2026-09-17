@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="th" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แปลงไฟล์ Pdf — แปลง PDF เป็น Word ตัวอักษรไทยไม่เพี้ยน (งานป้องกันปราบปราม · แจกฟรี)</title>
+<meta name="description" content="แปลงไฟล์ Pdf โปรแกรมแปลง PDF เป็น Word (.docx) สำหรับงานตำรวจ รักษาตัวอักษรไทย รูปภาพ และรูปแบบเอกสารราชการ รองรับ PDF ภาพสแกนด้วย OCR แปลงได้ทีละหลายไฟล์ ไม่ต้องติดตั้ง Python ทำงานในเครื่อง ไม่ส่งไฟล์ออกอินเทอร์เน็ต แจกฟรี">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="badge" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l14 5v10c0 9-6 15-14 19C12 33 6 27 6 18V8l14-5z" fill="#c9a227"/><path d="M20 7l10 3.6V18c0 7-4.4 11.6-10 14.6C14.4 29.6 10 25 10 18v-7.4L20 7z" fill="#0d1f3c"/><path d="M20 12l1.9 4h4.2l-3.4 2.6 1.3 4.2L20 20.4l-4 2.4 1.3-4.2-3.4-2.6h4.2z" fill="#c9a227"/></svg> โปรแกรมงานตำรวจ</a>
+    <a class="back" href="index.html">← หน้ารวมทุกสายงาน</a>
+    <div class="nav-links"><a href="#why">ข้อดี</a><a href="#can">ทำอะไรได้</a><a href="#install">วิธีโหลด</a><a href="#howto">วิธีใช้</a><a href="#faq">คำถาม</a><a href="#contact">ติดต่อ</a></div>
+    <a class="btn btn-gold" href="#free">ดาวน์โหลดฟรี</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">หน้ารวม</a> › งานป้องกันปราบปราม › แปลงไฟล์ Pdf</div>
+    <div class="slides" style="min-height:0;position:static">
+      <section class="slide active" style="position:static">
+        <div>
+          <span class="slide-kicker">● งานป้องกันปราบปราม · ใช้ได้ทุกสายงาน · แจกฟรี</span>
+          <h1>เอกสาร PDF เป็น Word<br>ใน<em>คลิกเดียว</em></h1>
+          <p class="lede">คำสั่งตั้งด่าน หนังสือเวียน หรือเอกสารจากหน่วยเหนือที่ส่งมาเป็น PDF — เดิมต้องพิมพ์ขึ้นใหม่ทั้งฉบับถึงจะแก้ไขได้
+            แปลงไฟล์ Pdf เปิดไฟล์ PDF แล้วได้ไฟล์ Word ที่แก้ไขได้ทันที ตัวอักษรไทยครบทุกสระวรรณยุกต์ รูปภาพและตราครุฑยังอยู่ครบ
+            จัดหน้าตามต้นฉบับให้อัตโนมัติ รองรับทั้งไฟล์ที่พิมพ์จริงและที่เป็นภาพสแกน</p>
+          <div class="cta">
+            <a class="btn btn-gold" href="#free" id="dl-hero">⬇ ดาวน์โหลดฟรี</a>
+            <a class="btn btn-ghost" href="#why">ดูข้อดีทั้งหมด</a>
+            <span class="note" id="vernote">Windows 10 / 11 (64 บิต) · ไม่ต้องติดตั้ง Python · ฟรี</span>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><b>0 บาท</b><span>ฟรี ไม่มีวันหมดอายุ</span></div>
+            <div class="stat"><b>หลายไฟล์</b><span>เลือกและแปลงพร้อมกันได้ในคลิกเดียว</span></div>
+            <div class="stat"><b>0%</b><span>ไฟล์ไม่ถูกส่งออกอินเทอร์เน็ต</span></div>
+          </div>
+        </div>
+        <div class="slide-art">
+          <svg viewBox="0 0 320 320" aria-hidden="true">
+            <circle class="ring" cx="160" cy="160" r="140" fill="none" stroke="rgba(201,162,39,.35)" stroke-width="2" stroke-dasharray="6 10"/>
+            <circle cx="160" cy="160" r="112" fill="#132a4f" stroke="rgba(255,255,255,.12)"/>
+            <g transform="translate(40 88)">
+              <rect x="0" y="0" width="104" height="144" rx="10" fill="#fff"/>
+              <rect x="12" y="16" width="60" height="7" rx="3.5" fill="#7a1f2b"/>
+              <rect x="12" y="30" width="84" height="5" rx="2.5" fill="#cfd6df"/>
+              <rect x="12" y="40" width="84" height="5" rx="2.5" fill="#cfd6df"/>
+              <rect x="12" y="50" width="60" height="5" rx="2.5" fill="#cfd6df"/>
+              <rect x="12" y="66" width="84" height="22" rx="5" fill="#f7e3e3"/>
+              <rect x="18" y="72" width="50" height="5" rx="2.5" fill="#c9727c"/>
+              <rect x="18" y="81" width="34" height="4" rx="2" fill="#c9727c"/>
+              <rect x="12" y="96" width="84" height="5" rx="2.5" fill="#cfd6df"/>
+              <rect x="12" y="106" width="48" height="5" rx="2.5" fill="#cfd6df"/>
+            </g>
+            <path d="M150 160h20" stroke="#c9a227" stroke-width="6" stroke-linecap="round"/>
+            <path d="M168 150l12 10-12 10" fill="none" stroke="#c9a227" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <g transform="translate(176 88)">
+              <rect x="0" y="0" width="104" height="144" rx="10" fill="#fff"/>
+              <rect x="12" y="16" width="60" height="7" rx="3.5" fill="#0d1f3c"/>
+              <rect x="12" y="30" width="84" height="5" rx="2.5" fill="#cfd6df"/>
+              <rect x="12" y="40" width="84" height="5" rx="2.5" fill="#cfd6df"/>
+              <rect x="12" y="50" width="60" height="5" rx="2.5" fill="#cfd6df"/>
+              <rect x="12" y="66" width="84" height="22" rx="5" fill="#f5e7b8"/>
+              <rect x="20" y="74" width="60" height="5" rx="2.5" fill="#c9a227"/>
+              <rect x="20" y="84" width="40" height="4" rx="2" fill="#c9a227"/>
+              <rect x="12" y="96" width="84" height="5" rx="2.5" fill="#cfd6df"/>
+              <rect x="12" y="106" width="48" height="5" rx="2.5" fill="#cfd6df"/>
+            </g>
+            <g transform="translate(228 208)">
+              <circle r="28" fill="#1b7f4b"/>
+              <path d="M-11 0l7 7 15-15" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </svg>
+        </div>
+      </section>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ ทำไม ═══════════ -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ข้อดี</span>
+      <div><h2>ทำไมงานป้องกันปราบปรามถึงต้องมี</h2>
+        <p>คำสั่ง หนังสือเวียน หรือแบบฟอร์มจากหน่วยเหนือส่วนใหญ่ส่งมาเป็น PDF — พิมพ์ทับหรือแก้ไขไม่ได้ตรง ๆ
+          ต้องนั่งพิมพ์ขึ้นใหม่ทั้งฉบับ กว่าจะครบทุกจุดก็เสียเวลาที่ควรอยู่กับงานสำคัญกว่า</p></div>
+    </div>
+    <div class="pains">
+      <div class="pain reveal"><h3>พิมพ์เอกสารราชการขึ้นใหม่ทั้งฉบับ</h3><p>ได้ไฟล์ PDF มาแล้วต้องเปิดพิมพ์ใหม่ทีละบรรทัดใน Word เพื่อจะแก้ไขหรือใช้ต่อ</p><span class="arrow-down">↓ เปลี่ยนเป็น</span><p class="fix">เปิด PDF แล้วกดแปลง ได้ไฟล์ Word แก้ไขได้ทันที</p></div>
+      <div class="pain reveal"><h3>แปลงด้วยเว็บทั่วไปแล้วตัวอักษรไทยเพี้ยน</h3><p>สระลอย วรรณยุกต์หลุดตำแหน่ง ตัวเลขไทยกลายเป็นสัญลักษณ์แปลก ๆ ต้องมานั่งไล่แก้ทีละคำ</p><span class="arrow-down">↓ เปลี่ยนเป็น</span><p class="fix">ตัวอักษรไทยครบทุกสระ วรรณยุกต์ ตัวเลขไทย</p></div>
+      <div class="pain reveal"><h3>รูปแบบเอกสารเสียหาย ต้องจัดหน้าใหม่</h3><p>ตราครุฑเลื่อน หัวเรื่องไม่กึ่งกลาง ลายเซ็นไม่ชิดขวา ระยะขอบผิดจากแบบราชการ</p><span class="arrow-down">↓ เปลี่ยนเป็น</span><p class="fix">จัดหน้าอัตโนมัติตามต้นฉบับ พร้อมขนาด A4 ระยะขอบตามระเบียบสารบรรณ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ทำอะไรได้ ═══════════ -->
+<section class="sec product" id="can">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ทำอะไรได้</span>
+      <div><h2>ความสามารถทั้งหมดในตัวโปรแกรม</h2><p>ออกแบบมาสำหรับเอกสารราชการไทยโดยเฉพาะ ไม่ใช่โปรแกรมแปลงไฟล์ทั่วไปที่เอามาปรับใช้</p></div>
+    </div>
+    <div class="promise">
+      <div class="reveal"><div class="ic">✓</div><div><h3>ตัวอักษรไทยไม่เพี้ยน</h3><p>สระ วรรณยุกต์ ตัวเลขไทย ครบถ้วนทุกตัว แม้ไฟล์ต้นฉบับจะมีปัญหาฟอนต์ฝังผิดพลาด โปรแกรมตรวจจับและแก้ให้อัตโนมัติ</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>รักษารูปภาพและตราครุฑ</h3><p>โลโก้หน่วยงาน ตราครุฑ ลายเซ็นสแกน อยู่ตำแหน่งเดิมเหมือนต้นฉบับ</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>ตัวหนา ตัวเอียง การจัดวาง</h3><p>หัวเรื่องกึ่งกลาง ลายเซ็นชิดขวา ระยะเยื้องย่อหน้า คำนวณจากตำแหน่งจริงในไฟล์ PDF ให้อัตโนมัติ</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>ขนาด A4 ตามระเบียบสารบรรณ</h3><p>ตั้งกระดาษ A4 และระยะขอบ (ซ้าย 3 ซม. ขวา 2 ซม. บน 1.5 ซม. ล่าง 2 ซม.) ตามระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ ให้เป็นค่าเริ่มต้นทุกไฟล์</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>รองรับไฟล์ภาพสแกน/ถ่ายรูป</h3><p>PDF ที่เป็นภาพถ่ายเอกสารหรือสแกน ใช้ระบบอ่านตัวอักษรจากภาพ (OCR) ให้อัตโนมัติ ไม่ต้องเลือกโหมดเอง</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>แปลงพร้อมกันได้หลายไฟล์</h3><p>เลือกไฟล์ PDF ทีเดียวหลายไฟล์ กดแปลงครั้งเดียว ได้ไฟล์ Word ครบทุกไฟล์</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>ไม่ต้องติดตั้ง Python</h3><p>ไฟล์เดียว แตก zip แล้วดับเบิลคลิกใช้ได้เลย ไม่ต้องลงโปรแกรมเสริม ไม่ต้องขอสิทธิ์แอดมิน</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>ไฟล์ไม่ออกจากเครื่อง</h3><p>แปลงไฟล์ในคอมของคุณทั้งหมด ไม่มีการอัปโหลดเอกสารขึ้นอินเทอร์เน็ต เหมาะกับเอกสารราชการและสำนวนคดี</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ วิธีดาวน์โหลด ═══════════ -->
+<section class="sec" id="install">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ดาวน์โหลด</span>
+      <div><h2>วิธีดาวน์โหลดและเปิดใช้ครั้งแรก</h2><p>ไฟล์ zip ไฟล์เดียวจบ ไม่ต้องติดตั้ง Python หรืออะไรเพิ่ม เปิดใช้งานได้ทันที</p></div>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="20" y="10" width="80" height="60" rx="8" fill="#132a4f"/><rect x="28" y="18" width="64" height="40" rx="4" fill="#eef1f5"/><path d="M60 26v18M52 38l8 8 8-8" stroke="#7a1f2b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="44" y="72" width="32" height="6" rx="3" fill="#132a4f"/><rect x="34" y="82" width="52" height="8" rx="4" fill="#c9a227"/></svg></div>
+        <h3>กดดาวน์โหลด</h3>
+        <p>ได้ไฟล์ <b id="dl-name">แปลงไฟล์ Pdf.zip</b> <span id="dl-size">(ราว 149 MB)</span> — ถ้าเบราว์เซอร์ขึ้นเตือนเรื่องไฟล์ ให้กด <kbd>ดาวน์โหลดต่อไป</kbd> เป็นเรื่องปกติของไฟล์ที่ไม่ได้มาจากร้านค้าแอป</p>
+      </div>
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><path d="M22 30h30l8 8h38v46H22z" fill="#c9a227"/><path d="M22 44h76v40H22z" fill="#e2bd4a"/><rect x="48" y="52" width="24" height="26" rx="3" fill="#fff"/><path d="M60 52v26M54 58h12M54 66h12M54 74h12" stroke="#132a4f" stroke-width="2"/><path d="M86 22l10 10-10 10" fill="none" stroke="#7a1f2b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>แตกไฟล์ zip</h3>
+        <p>คลิกขวา → <kbd>Extract All</kbd> จะได้ไฟล์ <b>แปลงไฟล์ Pdf.exe</b> พร้อมไฟล์อธิบายวิธีเปิดใช้งาน วางไว้โฟลเดอร์ไหนก็ได้</p>
+      </div>
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="14" y="12" width="92" height="70" rx="8" fill="#1b3a6b"/><rect x="24" y="24" width="72" height="8" rx="4" fill="#fff" opacity=".9"/><rect x="24" y="38" width="52" height="6" rx="3" fill="#fff" opacity=".5"/><rect x="24" y="60" width="30" height="12" rx="4" fill="#c9a227"/><rect x="60" y="60" width="30" height="12" rx="4" fill="#fff" opacity=".35"/><path d="M30 66h18" stroke="#0d1f3c" stroke-width="2"/></svg></div>
+        <h3>ถ้า Windows ขึ้นจอฟ้าเตือน</h3>
+        <p>กด <kbd>ข้อมูลเพิ่มเติม</kbd> (More info) แล้วกด <kbd>เรียกใช้ต่อไป</kbd> (Run anyway) — เป็นเรื่องปกติของโปรแกรมที่ไม่ได้ซื้อใบรับรอง ไม่ใช่ไวรัส</p>
+      </div>
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="16" y="14" width="88" height="66" rx="8" fill="#0d1f3c"/><rect x="24" y="22" width="72" height="42" rx="4" fill="#22385f"/><rect x="34" y="36" width="20" height="12" rx="2" fill="#e2bd4a"/><rect x="34" y="30" width="18" height="4" rx="1" fill="#c9a227"/><rect x="66" y="40" width="8" height="16" rx="2" fill="#f1c59d"/><rect x="62" y="34" width="14" height="4" rx="1" fill="#c9a227"/><rect x="24" y="68" width="72" height="5" rx="2.5" fill="#cfd6df"/><rect x="24" y="68" width="14" height="5" rx="2.5" fill="#c9a227"/><circle cx="96" cy="22" r="10" fill="#1b7f4b"/><path d="M91 22l3.5 3.5 6-6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>ดับเบิลคลิกแปลงไฟล์ Pdf.exe</h3>
+        <p>หน้าต่างโปรแกรมเปิดขึ้นมา กด <b>เลือกไฟล์ PDF...</b> ได้ทันที ไม่ต้องลงทะเบียน ไม่ต้องกรอกอะไร</p>
+      </div>
+    </div>
+    <div class="notice reveal">
+      <h3>เครื่องแบบไหนใช้ได้</h3>
+      <div class="spec">
+        <div><span>ระบบปฏิบัติการ</span>Windows 10 / 11 (64 บิต)</div>
+        <div><span>ขนาดไฟล์</span><span id="dl-size3">ราว 149 MB (zip)</span></div>
+        <div><span>ต้องต่อเน็ต</span>เฉพาะตอนแปลงหน้าภาพสแกนครั้งแรก (โหลดไฟล์ภาษาให้ระบบอ่านตัวอักษร)</div>
+        <div><span>พื้นที่ดิสก์</span>ราว 500 MB สำหรับตัวโปรแกรม</div>
+      </div>
+      <p style="margin:12px 0 0">รับไฟล์ PDF ได้ทั้งแบบที่พิมพ์ตัวอักษรจริงและแบบภาพสแกน/ถ่ายรูป เลือกได้ครั้งละหลายไฟล์พร้อมกัน</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ วิธีใช้ ═══════════ -->
+<section class="sec product" id="howto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">วิธีใช้</span>
+      <div><h2>ใช้งาน 3 ขั้น</h2><p>ไม่มีการตั้งค่าที่ต้องทำก่อน เปิดโปรแกรมแล้วใช้ได้ทันที</p></div>
+    </div>
+    <div class="timeline">
+      <div class="tl reveal"><div class="n">1</div><div><h3>เลือกไฟล์ PDF</h3><p>กดปุ่ม “เลือกไฟล์ PDF...” แล้วเลือกไฟล์ที่ต้องการแปลง เลือกได้ครั้งละหลายไฟล์พร้อมกัน</p></div></div>
+      <div class="tl reveal"><div class="n">2</div><div><h3>กดปุ่ม “แปลงเป็น Word”</h3><p>รอจนกว่าแถบความคืบหน้าจะเต็ม ระยะเวลาขึ้นอยู่กับจำนวนหน้าและว่ามีหน้าที่เป็นภาพสแกนหรือไม่</p></div></div>
+      <div class="tl reveal"><div class="n">3</div><div><h3>เปิดไฟล์ผลลัพธ์</h3><p>ไฟล์ Word (.docx) จะถูกบันทึกไว้ในโฟลเดอร์เดียวกับไฟล์ PDF ต้นฉบับ กดปุ่ม “เปิดโฟลเดอร์ปลายทาง” เพื่อดูไฟล์ได้ทันที</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ฟรี / ดาวน์โหลด ═══════════ -->
+<section class="sec price" id="free">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ดาวน์โหลดฟรี</span>
+      <div><h2>ฟรีจริง ไม่มีเงื่อนไขซ่อน</h2><p>โปรแกรมนี้แจกให้ทุกโรงพักใช้ ไม่มีค่าใช้จ่าย ไม่มีวันหมดอายุ ไม่ต้องลงทะเบียน</p></div>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <div class="price-big">ฟรี <small>/ ทุกโรงพัก · ใช้ได้ทุกสายงาน · ไม่จำกัดเครื่อง</small></div>
+        <ul>
+          <li>ใช้ได้ทุกความสามารถ ไม่มีรุ่นตัดทอน ไม่มีรุ่นพรีเมียม</li>
+          <li>ไม่ต้องกรอกอีเมล ไม่ต้องกรอกคีย์ เปิดแล้วใช้เลย</li>
+          <li>ติดตั้งกี่เครื่องก็ได้ ส่งต่อให้โรงพักอื่นได้</li>
+          <li>ติดปัญหา ทัก Line ได้เหมือนโปรแกรมที่ซื้อ</li>
+        </ul>
+        <div class="dl-meta">
+          <div><span>ระบบปฏิบัติการ</span>Windows 10 / 11 (64 บิต)</div>
+          <div><span>ขนาดไฟล์</span><span id="dl-size2" style="display:inline;color:#fff;font-size:inherit">ราว 149 MB (zip)</span></div>
+          <div><span>ต้องต่อเน็ต</span>เฉพาะตอนใช้ OCR ครั้งแรก</div>
+        </div>
+        <div style="margin-top:16px"><a class="btn btn-gold" id="dl-main" href="#free">⬇ ดาวน์โหลด แปลงไฟล์ Pdf</a></div>
+        <div class="dl-alt" id="dl-alt">อยากสนับสนุนค่าพัฒนา (ไม่บังคับ): พร้อมเพย์ <b style="color:#fff">083-805-4193</b></div>
+      </div>
+      <div class="price-card reveal">
+        <h3 style="color:#fff;font-size:1.2rem">ทำไมถึงแจกฟรี</h3>
+        <ol class="buy-steps">
+          <li><span class="k">1</span><div><b>เพราะเอกสารราชการควรแปลงได้ถูกต้องทุกโรงพัก</b><span>ไม่ใช่ปัญหาที่ควรแก้ด้วยการจ่ายเงิน เอกสารตำรวจถูกต้องตั้งแต่ต้นทาง ทุกฝ่ายได้ประโยชน์</span></div></li>
+          <li><span class="k">2</span><div><b>ต่อยอดจากโปรแกรมที่ใช้เองอยู่แล้ว</b><span>ไม่มีต้นทุนเพิ่มในการแจกต่อให้โรงพักอื่นใช้ด้วย</span></div></li>
+          <li><span class="k">3</span><div><b>อยากให้ลองโปรแกรมสายงานอื่นของเราด้วย</b><span>ถ้าแปลงไฟล์ Pdf ช่วยงานได้ ลองดูโปรแกรมสายงานอื่นในเว็บนี้ — แนวคิดเดียวกัน คือให้คอมทำงานซ้ำแทนคน</span></div></li>
+        </ol>
+        <div style="margin-top:14px"><a class="btn btn-ghost" href="index.html#lines">ดูโปรแกรมสายงานอื่น →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-label">คำถาม</span><div><h2>คำถามที่ถามกันบ่อย</h2></div></div>
+    <details class="reveal"><summary>ต้องติดตั้ง Python หรือโปรแกรมเสริมอะไรไหม</summary><p>ไม่ต้อง แตกไฟล์ zip แล้วดับเบิลคลิกใช้ได้เลย ไม่ต้องลงโปรแกรมเสริม ไม่ต้องขอสิทธิ์แอดมิน</p></details>
+    <details class="reveal"><summary>ใช้กับ PDF แบบไหนได้บ้าง</summary><p>ได้ทั้งสองแบบในไฟล์เดียวกัน — ทั้งที่มีตัวอักษรจริงและที่เป็นภาพสแกน/ถ่ายรูป หน้าที่เป็นภาพจะใช้ระบบอ่านตัวอักษรจากภาพ (OCR) ให้อัตโนมัติ</p></details>
+    <details class="reveal"><summary>แปลงแล้วตัวอักษรไทยเพี้ยนไหม</summary><p>หน้าที่มีตัวอักษรจริงในไฟล์ต้นฉบับจะตรงกับต้นฉบับทุกตัวอักษร โปรแกรมตรวจสอบและแก้ปัญหาฟอนต์ฝังผิดพลาดที่พบได้ในเอกสารราชการบางไฟล์ให้อัตโนมัติ ส่วนหน้าที่เป็นภาพสแกนใช้ OCR ซึ่งอาจมีคลาดเคลื่อนเล็กน้อยตามความคมชัดของภาพต้นฉบับ — ควรตรวจทานทุกครั้งก่อนใช้งานจริง โดยเฉพาะเอกสารสำคัญ</p></details>
+    <details class="reveal"><summary>ไฟล์เอกสารถูกส่งออกอินเทอร์เน็ตไหม</summary><p>ไม่ ทุกไฟล์แปลงในคอมของคุณทั้งหมด ไม่มีการอัปโหลดขึ้นเซิร์ฟเวอร์ใด ๆ ต่อเน็ตเฉพาะตอนดาวน์โหลดโปรแกรมครั้งแรก และตอนใช้ระบบอ่านตัวอักษรจากภาพ (OCR) ครั้งแรกเท่านั้น</p></details>
+    <details class="reveal"><summary>แปลงพร้อมกันหลายไฟล์ได้ไหม</summary><p>ได้ กดเลือกไฟล์ PDF ได้ครั้งละหลายไฟล์ แล้วกดแปลงครั้งเดียว โปรแกรมจะแปลงให้ครบทุกไฟล์ตามลำดับ</p></details>
+    <details class="reveal"><summary>ไฟล์ Word ที่ได้ ขนาดกระดาษเป็นอะไร</summary><p>ตั้งเป็น A4 พร้อมระยะขอบตามระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณเป็นค่าเริ่มต้น (ซ้าย 3 ซม. ขวา 2 ซม. บน 1.5 ซม. ล่าง 2 ซม.) เหมาะกับการแปลงหนังสือราชการโดยเฉพาะ</p></details>
+    <details class="reveal"><summary>ฟรีจริงไหม มีวันหมดอายุไหม</summary><p>ฟรีจริง ไม่มีวันหมดอายุ ไม่ต้องลงทะเบียน การสนับสนุนผ่านพร้อมเพย์เป็นความสมัครใจล้วน ๆ ไม่ใช่ค่าลิขสิทธิ์หรือเงื่อนไขการใช้งาน</p></details>
+  </div>
+</section>
+
+<!-- ═══════════ ติดต่อ ═══════════ -->
+<section class="sec product" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-label">ติดต่อ</span><div><h2>ติดปัญหา หรืออยากให้เพิ่มอะไร</h2><p>ทักมาได้เลย ส่งไฟล์ PDF ที่แปลงแล้วมีปัญหามาด้วยจะช่วยได้เร็วขึ้น</p></div></div>
+    <div class="contact reveal">
+      <div><span>Line ID</span><b>kaveek1169</b></div>
+      <div><span>โทรศัพท์</span><b>083-805-4193</b></div>
+      <div><span>อีเมล</span><b>kaveek1@gmail.com</b></div>
+      <div><span>ผู้พัฒนา</span><b>น้อย</b></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>โปรแกรมงานตำรวจ · <span id="pw-foot">แปลงไฟล์ Pdf</span></span>
+    <span>ผู้จำหน่าย: น้อย · Line kaveek1169</span>
+  </div>
+</footer>
+
+<!-- ═══════════ ตัวการ์ตูนตำรวจแนะนำ "ด.ต.อำนวย หัวคาด" (ต้นแบบวาดเอง) ═══════════ -->
+<div class="guide" id="guide">
+  <div class="bubble" id="bubble">
+    <button class="close" id="gclose" aria-label="ปิด">✕</button>
+    <b>ด.ต.อำนวย หัวคาด — ผู้ช่วยแนะนำ</b>
+    <span id="gtext"></span><span class="cur"></span>
+  </div>
+  <svg class="officer" id="officer" viewBox="0 0 200 220" aria-hidden="true">
+    <path d="M40 220c0-44 22-70 60-70s60 26 60 70z" fill="#8a7a4e"/>
+    <path d="M100 150l-16 20 16 44 16-44z" fill="#6f6139"/>
+    <path d="M100 152l-6 8 6 34 6-34z" fill="#3b2f1e"/>
+    <rect x="46" y="156" width="30" height="12" rx="4" fill="#6f6139"/><rect x="124" y="156" width="30" height="12" rx="4" fill="#6f6139"/>
+    <path d="M40 182l12-8 12 8M40 191l12-8 12 8M40 200l12-8 12 8" fill="none" stroke="#c9a227" stroke-width="3.5" stroke-linejoin="round"/>
+    <rect x="112" y="178" width="30" height="8" rx="2" fill="#f2f2f2"/><rect x="60" y="176" width="26" height="10" rx="2" fill="#c9a227"/>
+    <rect x="86" y="128" width="28" height="26" rx="8" fill="#e8b98f"/>
+    <ellipse cx="100" cy="98" rx="42" ry="46" fill="#f1c59d"/>
+    <path d="M58 100c0-18 8-30 20-36h44c12 6 20 18 20 36" fill="#2b2118"/>
+    <ellipse cx="58" cy="104" rx="7" ry="9" fill="#e8b98f"/><ellipse cx="142" cy="104" rx="7" ry="9" fill="#e8b98f"/>
+    <path d="M52 74c0-22 22-34 48-34s48 12 48 34l-6 4H58z" fill="#8a7a4e"/>
+    <path d="M50 76h100l4 6c0 5-26 9-54 9s-54-4-54-9z" fill="#2b2b2b"/>
+    <path d="M60 78c12 10 68 10 80 0" fill="none" stroke="#c9a227" stroke-width="3"/>
+    <path d="M52 74c10-6 86-6 96 0v4c-10 5-86 5-96 0z" fill="#3b3a36"/>
+    <circle cx="100" cy="58" r="9" fill="#c9a227"/><path d="M100 51l2 4.5h4.8l-3.9 2.9 1.5 4.6-4.4-2.8-4.4 2.8 1.5-4.6-3.9-2.9h4.8z" fill="#7a1f2b"/>
+    <path d="M78 92c6-4 14-4 20 0M102 92c6-4 14-4 20 0" fill="none" stroke="#2b2118" stroke-width="3" stroke-linecap="round"/>
+    <g class="eye"><ellipse cx="88" cy="103" rx="5" ry="6" fill="#2b2118"/><circle cx="90" cy="101" r="1.6" fill="#fff"/></g>
+    <g class="eye"><ellipse cx="112" cy="103" rx="5" ry="6" fill="#2b2118"/><circle cx="114" cy="101" r="1.6" fill="#fff"/></g>
+    <path d="M100 108v8" stroke="#d9a07a" stroke-width="3" stroke-linecap="round"/>
+    <path d="M86 122c6 8 22 8 28 0" fill="none" stroke="#a5563f" stroke-width="3.5" stroke-linecap="round"/>
+    <g class="hand">
+      <path d="M150 200c8-12 12-30 8-48" fill="none" stroke="#8a7a4e" stroke-width="18" stroke-linecap="round"/>
+      <circle cx="158" cy="146" r="13" fill="#f1c59d"/>
+      <path d="M150 138v-10M156 134v-12M162 135v-11M168 140v-8" stroke="#f1c59d" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <path d="M50 200c-6-12-8-28-4-42" fill="none" stroke="#8a7a4e" stroke-width="18" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<script>
+window.GUIDE_TIPS={"top": "นี่คือแปลงไฟล์ Pdf โปรแกรมของงานป้องกันปราบปราม แต่ใช้ได้ทุกสายงานเลยครับ แจกฟรีไม่มีค่าใช้จ่าย", "why": "ได้ PDF มาแล้วต้องพิมพ์ขึ้นใหม่ทั้งฉบับ — นั่นแหละคือสิ่งที่เราอยากให้หมดไปครับ", "can": "ที่ภูมิใจสุดคือตัวอักษรไทยไม่เพี้ยนครับ แม้ไฟล์ต้นฉบับจะมีปัญหาฟอนต์ฝังผิดพลาด โปรแกรมก็ตรวจจับและแก้ให้เอง", "install": "ไฟล์เดียวจบ แตก zip แล้วดับเบิลคลิกได้เลยครับ ไม่ต้องลงอะไรเพิ่ม", "howto": "แค่ 3 ขั้นครับ เลือกไฟล์ กดแปลง แล้วเปิดโฟลเดอร์ปลายทางดูผลลัพธ์", "free": "ฟรีจริงครับ ไม่มีเงื่อนไข โหลดไปแจกโรงพักข้าง ๆ ก็ได้ อยากสนับสนุนค่าพัฒนาก็ทำได้ผ่านพร้อมเพย์ แต่ไม่บังคับครับ", "faq": "ตัวอักษรเพี้ยนไหม ไฟล์ปลอดภัยไหม — ตอบไว้ตรง ๆ ในนี้ครับ ไม่มีก็ทัก Line มาได้", "contact": "เจอ PDF ไฟล์ไหนแปลงแล้วมีปัญหา ส่งมาให้ผมดูได้เลยครับ"};
+</script>
+<script>
+/* ลิงก์ดาวน์โหลดของแปลงไฟล์ Pdf อ่านจาก pdf2word.json — แก้ไฟล์นั้นไฟล์เดียวเมื่อออกรุ่นใหม่หรือเปลี่ยนลิงก์ */
+(function(){
+  fetch('pdf2word.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(v){
+    if(!v)return;
+    var mb=v.size?(v.size/1048576):0, sz=mb?(Math.round(mb)+' MB'):'';
+    if(v.url){ ['dl-hero','dl-main'].forEach(function(id){var a=document.getElementById(id);if(a){a.href=v.url;a.removeAttribute('download');}}); }
+    if(v.url){ var nm=v.url.split('/').pop(); if(/\.zip$/i.test(nm)){ var n=document.getElementById('dl-name'); if(n)n.textContent=nm; } }
+    if(sz){ var a=document.getElementById('dl-size'); if(a)a.textContent='('+sz+')'; var b=document.getElementById('dl-size2'); if(b)b.textContent=sz; var c=document.getElementById('dl-size3'); if(c)c.textContent=sz; }
+    var note=document.getElementById('vernote'), foot=document.getElementById('pw-foot');
+    if(v.version){ if(note)note.textContent='รุ่น '+v.version+(v.released?' · ออกเมื่อ '+v.released:'')+' · Windows 10 / 11 (64 บิต)'+(sz?' · '+sz:'')+' · ฟรี'; if(foot)foot.textContent='แปลงไฟล์ Pdf รุ่น '+v.version; }
+  }).catch(function(){});
+})();
+</script>
+<script>
+/* โปรแกรมงานตำรวจ — สคริปต์ร่วมทุกหน้า (ตัดเฉพาะส่วนที่หน้านี้ใช้) */
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(x){io.observe(x)});
+
+  var guide=document.getElementById('guide'), tips=window.GUIDE_TIPS||{};
+  if(guide){
+    var gtext=document.getElementById('gtext'), curKey='', typing=null, secKey='top';
+    var say=function(key){
+      if(key===curKey||!tips[key])return; curKey=key;
+      var s=tips[key], i=0; clearInterval(typing); gtext.textContent='';
+      if(reduce){gtext.textContent=s;return}
+      typing=setInterval(function(){gtext.textContent=s.slice(0,++i); if(i>=s.length)clearInterval(typing)},22);
+    };
+    try{ if(localStorage.getItem('guideOff')==='1') guide.classList.add('hidden'); }catch(e){}
+    document.getElementById('gclose').addEventListener('click',function(){guide.classList.add('hidden');try{localStorage.setItem('guideOff','1')}catch(e){}});
+    document.getElementById('officer').addEventListener('click',function(){curKey='';say(secKey)});
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){secKey=e.target.id;say(secKey)}})},{rootMargin:'-40% 0px -50% 0px'});
+    Object.keys(tips).forEach(function(id){var n=document.getElementById(id);if(n)so.observe(n)});
+    say('top');
+  }
+})();
+</script>
+</body>
+</html>
