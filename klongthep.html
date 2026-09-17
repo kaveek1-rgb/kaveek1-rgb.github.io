@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="th" class="js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>กล้องเทพ — วิเคราะห์ภาพวงจรปิด (งานสืบสวน · แจกฟรี)</title>
+<meta name="description" content="กล้องเทพ โปรแกรมวิเคราะห์ภาพวงจรปิดสำหรับงานสืบสวน ย่อวิดีโอ 8 ชั่วโมงเหลือไม่กี่นาที ค้นหาคน รถ จักรยานยนต์ย้อนหลังตามสี ทิศทาง ช่วงเวลา ทำงานในเครื่องเอง ไม่ส่งภาพออกอินเทอร์เน็ต แจกฟรี">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+/* เฉพาะหน้านี้ — ของที่ site.css ยังไม่มี */
+.free-pill{display:inline-block;background:var(--ok);color:#fff;font-family:var(--kan);font-weight:600;font-size:.85rem;border-radius:999px;padding:.15rem .7rem;vertical-align:middle;margin-left:.4rem}
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.case{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 18px;display:grid;grid-template-columns:56px 1fr;gap:16px}
+.case .ico{width:56px;height:56px;border-radius:14px;background:var(--navy);display:grid;place-items:center}
+.case .ico svg{width:30px;height:30px}
+.case h3{margin:.1em 0 .3em;color:var(--navy);font-size:1.08rem}
+.case p{margin:0 0 .5em;color:var(--ink-2);font-size:.95rem}
+.case .flow{display:flex;flex-wrap:wrap;gap:6px;margin-top:.4rem}
+.case .flow span{font-family:var(--kan);font-size:.82rem;background:#eef1f5;border:1px solid #dde3ea;border-radius:8px;padding:.1rem .55rem;color:var(--navy)}
+.case .flow span.out{background:var(--gold-soft);border-color:#e6cf7a}
+.case .flow i{align-self:center;color:var(--mute);font-style:normal}
+@media (max-width:820px){.cases{grid-template-columns:1fr}}
+.limits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.limit{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.limit b{display:block;font-family:var(--kan);color:var(--navy);margin-bottom:.15em}
+.limit span{font-size:.92rem;color:var(--ink-2)}
+@media (max-width:820px){.limits{grid-template-columns:1fr}}
+.spec{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.spec div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.92rem}
+.spec span{display:block;color:var(--mute);font-size:.8rem}
+@media (max-width:820px){.spec{grid-template-columns:1fr 1fr}}
+.dl-alt{margin-top:10px;font-size:.88rem;color:rgba(255,255,255,.75)}
+.dl-alt a{color:var(--gold-2)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg class="badge" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l14 5v10c0 9-6 15-14 19C12 33 6 27 6 18V8l14-5z" fill="#c9a227"/><path d="M20 7l10 3.6V18c0 7-4.4 11.6-10 14.6C14.4 29.6 10 25 10 18v-7.4L20 7z" fill="#0d1f3c"/><path d="M20 12l1.9 4h4.2l-3.4 2.6 1.3 4.2L20 20.4l-4 2.4 1.3-4.2-3.4-2.6h4.2z" fill="#c9a227"/></svg> โปรแกรมงานตำรวจ</a>
+    <a class="back" href="index.html">← หน้ารวมทุกสายงาน</a>
+    <div class="nav-links"><a href="#why">ข้อดี</a><a href="#cases">ตัวอย่างการใช้</a><a href="#install">วิธีโหลด</a><a href="#howto">วิธีใช้</a><a href="#faq">คำถาม</a><a href="#contact">ติดต่อ</a></div>
+    <a class="btn btn-gold" href="#free">ดาวน์โหลดฟรี</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">หน้ารวม</a> › งานสืบสวน › กล้องเทพ</div>
+    <div class="slides" style="min-height:0;position:static">
+      <section class="slide active" style="position:static">
+        <div>
+          <span class="slide-kicker">● งานสืบสวน · แจกฟรี ไม่มีค่าใช้จ่าย</span>
+          <h1>ดูกล้องวงจรปิด 8 ชั่วโมง<br>ให้จบใน<em>ไม่กี่นาที</em></h1>
+          <p class="lede">กล้องเทพ นำไฟล์จากกล้องวงจรปิดมาให้ AI ดูแทนคุณครั้งเดียว แล้วย่อเหตุการณ์ทั้งวันให้เหลือวิดีโอสั้น ๆ
+            ที่ทุกคน ทุกคัน ยังอยู่ครบพร้อมป้ายเวลาจริง ค้นหาย้อนหลังได้ทันทีว่า “รถสีขาวที่ผ่านตอนตีสอง” หรือ “คนเสื้อแดงที่เดินมาจากทางซ้าย” คือใคร
+            คลิกแล้วกระโดดไปดูภาพต้นฉบับ ณ วินาทีนั้นได้เลย — ทำงานในเครื่องของโรงพักทั้งหมด ไม่ส่งภาพออกอินเทอร์เน็ต</p>
+          <div class="cta">
+            <a class="btn btn-gold" href="#free" id="dl-hero">⬇ ดาวน์โหลดฟรี</a>
+            <a class="btn btn-ghost" href="#cases">ดูตัวอย่างการใช้งาน</a>
+            <span class="note" id="vernote">Windows 10 / 11 (64 บิต) · ไม่ต้องติดตั้ง Python · ฟรี</span>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><b>39×</b><span>ย่อได้ — 5 ชั่วโมงครึ่ง เหลือ 8 นาที</span></div>
+            <div class="stat"><b>0 บาท</b><span>ไม่มีค่าใช้จ่าย ไม่มีวันหมดอายุ</span></div>
+            <div class="stat"><b>100%</b><span>ทำงานในเครื่อง ไม่ส่งภาพออกเน็ต</span></div>
+          </div>
+        </div>
+        <div class="slide-art">
+          <svg viewBox="0 0 320 320" aria-hidden="true">
+            <circle class="ring" cx="160" cy="160" r="140" fill="none" stroke="rgba(201,162,39,.35)" stroke-width="2" stroke-dasharray="6 10"/>
+            <circle cx="160" cy="160" r="112" fill="#132a4f" stroke="rgba(255,255,255,.12)"/>
+            <!-- จอภาพ -->
+            <g transform="translate(70 92)">
+              <rect x="0" y="0" width="180" height="112" rx="10" fill="#fff"/>
+              <rect x="8" y="8" width="164" height="78" rx="6" fill="#0d1f3c"/>
+              <!-- ถนน -->
+              <path d="M8 86L70 20h40l62 66z" fill="#22385f"/>
+              <path d="M90 20v66" stroke="#f5e7b8" stroke-width="2" stroke-dasharray="6 6" opacity=".7"/>
+              <!-- วัตถุที่ถูกจับ พร้อมกรอบและป้ายเวลา -->
+              <rect x="30" y="52" width="26" height="14" rx="2" fill="#7a1f2b"/><rect x="30" y="44" width="26" height="6" rx="1.5" fill="#c9a227"/>
+              <rect x="120" y="60" width="30" height="16" rx="2" fill="#e2bd4a"/><rect x="120" y="52" width="26" height="6" rx="1.5" fill="#c9a227"/>
+              <rect x="86" y="34" width="10" height="20" rx="2" fill="#f1c59d"/><rect x="82" y="26" width="18" height="6" rx="1.5" fill="#c9a227"/>
+              <rect x="60" y="68" width="10" height="16" rx="2" fill="#99c8ff"/><rect x="56" y="60" width="18" height="6" rx="1.5" fill="#c9a227"/>
+              <!-- ไทม์ไลน์ใต้จอ: ยาว -> สั้น -->
+              <rect x="8" y="94" width="164" height="6" rx="3" fill="#cfd6df"/>
+              <rect x="8" y="94" width="22" height="6" rx="3" fill="#c9a227"/>
+            </g>
+            <g transform="translate(200 200)">
+              <circle r="34" fill="#7a1f2b"/>
+              <path d="M-12 -12l24 12-24 12z" fill="#fff"/>
+            </g>
+            <g font-family="Kanit,Sarabun,sans-serif" font-size="13" fill="#f5e7b8">
+              <text x="30" y="80">8 ชั่วโมง</text><text x="30" y="236">ครบทุกคัน</text>
+              <text x="236" y="80">→ 8 นาที</text><text x="244" y="252">เวลาจริง</text>
+            </g>
+          </svg>
+        </div>
+      </section>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ ข้อดี ═══════════ -->
+<section class="sec product" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ข้อดี</span>
+      <div><h2>ทำไมงานสืบสวนถึงต้องมี</h2>
+        <p>ภาพวงจรปิดคือหลักฐานที่มีอยู่แล้วในเกือบทุกคดี แต่คนดูมีจำกัด กล้อง 4 ตัว × 8 ชั่วโมง คือ 32 ชั่วโมงที่ต้องนั่งจ้อง — แล้วเหตุการณ์ที่ต้องการอาจยาวแค่ 3 วินาที</p></div>
+    </div>
+
+    <div class="two">
+      <div class="card bad reveal">
+        <h3>✕ ดูมือแบบเดิม</h3>
+        <ul>
+          <li>เปิดไฟล์กรอเร็ว 8 เท่า ตาลายจนพลาดช่วงที่รถผ่านแค่ 2 วินาที</li>
+          <li>คำให้การบอก “จยย. สีแดง จากทางซ้าย” แต่ต้องไล่ดูทุกคันเอง</li>
+          <li>เจอแล้วต้องจดเวลาใส่กระดาษ กลับมาหาใหม่ก็กรอหาอีกรอบ</li>
+          <li>กล้องบันทึกเป็นไฟล์ .dav แปลก ๆ เปิดในคอมทั่วไปไม่ได้</li>
+          <li>ดูหลายคืนติดกัน คนก็ล้า หลักฐานก็หมดอายุตามรอบเขียนทับของเครื่องบันทึก</li>
+        </ul>
+      </div>
+      <div class="card good reveal">
+        <h3>✓ ใช้กล้องเทพ</h3>
+        <ul>
+          <li>ให้ AI ดูครั้งเดียวต่อไฟล์ หลังจากนั้นค้นหาได้ทันทีตลอดไป</li>
+          <li>กรอง ประเภท · สี · ขนาด · ความเร็ว · ทิศทาง · ช่วงเวลา · เส้นทาง ในคลิกเดียว</li>
+          <li>วิดีโอย่อ: ทั้งวันเหลือไม่กี่นาที ทุกวัตถุยังอยู่ครบ พร้อมป้ายเวลาจริง</li>
+          <li>คลิกวัตถุในวิดีโอย่อ → กระโดดไปดูภาพต้นฉบับ ณ วินาทีนั้น</li>
+          <li>รับไฟล์ .mp4 .dav .h264 .avi .mkv .mov .wmv ฯลฯ แปลงให้เองโดยไม่ต้องหาโปรแกรมเสริม</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin:38px 0 12px;color:var(--navy);font-size:1.25rem" class="reveal">ตัวเลขจากการใช้จริง</h3>
+    <div class="feats">
+      <div class="feat reveal"><div class="num">39×</div><h3>ย่อ 5 ชั่วโมงครึ่ง เหลือ 8 นาที</h3><p>ไฟล์กล้องหน้าสถานี 8 ชั่วโมง กรองเฉพาะช่วงที่ต้องการ 329 วัตถุ ได้วิดีโอย่อ 8 นาทีที่ยังเห็นทุกคันทุกคน</p></div>
+      <div class="feat reveal"><div class="num">4.6×</div><h3>ประมวลผลเร็วกว่าเวลาจริง</h3><p>คลิป 10 นาที ใช้เวลาวิเคราะห์ 2 นาทีครึ่ง บนคอมที่มีการ์ดจอ NVIDIA ทั่วไป (RTX 3070 Ti) ทั้งคืนก็ตั้งทิ้งไว้แล้วมาดูตอนเช้า</p></div>
+      <div class="feat reveal"><div class="num">1 ครั้ง</div><h3>วิเคราะห์แล้วค้นได้ตลอด</h3><p>ผลการวิเคราะห์เก็บเป็นฐานข้อมูลในเครื่อง เปลี่ยนคำถามกี่รอบก็ตอบได้ทันที ไม่ต้องให้ AI ดูใหม่</p></div>
+      <div class="feat reveal"><div class="num">0 บาท</div><h3>ฟรี ไม่มีวันหมดอายุ</h3><p>ไม่ต้องลงทะเบียน ไม่ต้องกรอกคีย์ ไม่มีรุ่นพรีเมียม โปรแกรมเป็นโอเพนซอร์ส แจกพร้อมซอร์สโค้ด</p></div>
+      <div class="feat reveal"><div class="num">ออฟไลน์</div><h3>ภาพไม่ออกจากเครื่อง</h3><p>ทุกอย่างทำงานในคอมของโรงพัก ไม่มีการอัปโหลดขึ้นคลาวด์ ต่อเน็ตเฉพาะตอนดาวน์โหลดครั้งแรก</p></div>
+      <div class="feat reveal"><div class="num">ครบ</div><h3>คนขับมาพร้อมรถ</h3><p>จักรยานยนต์กับคนขับถูกจับคู่ให้เป็นชุดเดียวกัน ในวิดีโอย่อจึงเห็นว่าใครขี่คันไหน ไม่ใช่รถวิ่งมาเปล่า ๆ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ตัวอย่างการใช้งาน ═══════════ -->
+<section class="sec" id="cases">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ตัวอย่างการใช้</span>
+      <div><h2>เหตุการณ์จริงที่กล้องเทพช่วยได้</h2><p>สี่สถานการณ์ที่เจอบ่อยในโรงพัก และขั้นตอนที่ทำจริงในโปรแกรม</p></div>
+    </div>
+    <div class="cases">
+      <div class="case reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#e2bd4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a2 2 0 012-1h10a2 2 0 012 1l2 5"/><rect x="2" y="13" width="20" height="6" rx="2"/><circle cx="7" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg></div>
+        <div>
+          <h3>รถหายหน้าตลาด กลางดึก</h3>
+          <p>ผู้เสียหายจอดรถไว้ 4 ทุ่ม เช้ามาหาย มีกล้องเทศบาล 1 ตัว บันทึกไว้ 8 ชั่วโมง</p>
+          <div class="flow"><span>เพิ่มไฟล์ 8 ชม.</span><i>→</i><span>กรอง “รถยนต์” 22:00–06:00</span><i>→</i><span>สร้างวิดีโอย่อ</span><i>→</i><span class="out">ดู 8 นาที เห็นทุกคันพร้อมเวลาจริง</span></div>
+          <p style="margin-top:.6rem">เจอคันที่สงสัย คลิกที่ตัวรถในวิดีโอย่อ โปรแกรมเปิดภาพต้นฉบับ ณ วินาทีนั้นให้ทันที พร้อมเส้นทางที่รถวิ่ง</p>
+        </div>
+      </div>
+      <div class="case reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#e2bd4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M4 21v-2a6 6 0 016-6h4a6 6 0 016 6v2"/></svg></div>
+        <div>
+          <h3>ตามหาคนจากคำให้การ</h3>
+          <p>พยานบอกว่า “ผู้ชายเสื้อแดง กางเกงดำ เดินมาจากทางซ้าย ประมาณบ่ายสาม”</p>
+          <div class="flow"><span>ประเภท: คน</span><i>+</i><span>เสื้อ: แดง · กางเกง: ดำ</span><i>+</i><span>ทิศทาง: ซ้าย→ขวา</span><i>+</i><span>14:30–15:30</span><i>→</i><span class="out">ภาพย่อทุกคนที่ตรง พร้อมเวลา</span></div>
+          <p style="margin-top:.6rem">ผลค้นหาเรียงตามเวลาเป็นภาพย่อของแต่ละคน กดดูภาพเต็ม ดูเส้นทางเดิน หรือส่งเฉพาะคนที่เลือกไปทำวิดีโอย่อได้</p>
+        </div>
+      </div>
+      <div class="case reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#e2bd4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20L21 4"/><path d="M5 4h14v16"/><circle cx="8" cy="15" r="2"/><circle cx="16" cy="9" r="2"/></svg></div>
+        <div>
+          <h3>ใครเข้าออกซอยนี้บ้าง</h3>
+          <p>ต้องการเฉพาะรถที่ “เลี้ยวเข้าซอย” ไม่เอาที่วิ่งผ่านถนนใหญ่ ซึ่งมีเป็นพัน ๆ คัน</p>
+          <div class="flow"><span>ลากเส้นขวางปากซอยบนภาพ</span><i>→</i><span>โปรแกรมเลือกเฉพาะที่ข้ามเส้น</span><i>→</i><span class="out">เหลือแค่คันที่เข้าซอยจริง</span></div>
+          <p style="margin-top:.6rem">วาดพื้นที่ (ROI) หรือเส้นตัด (tripwire) บนภาพได้เลย ใช้ร่วมกับตัวกรองอื่นได้ทั้งหมด และดูภาพความหนาแน่นว่าคนเดินผ่านตรงไหนมากที่สุด</p>
+        </div>
+      </div>
+      <div class="case reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#e2bd4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v6h6"/><path d="M9 13h6M9 17h6"/></svg></div>
+        <div>
+          <h3>ทำสำนวนให้ตรวจสอบย้อนหลังได้</h3>
+          <p>ผู้บังคับบัญชาถามว่า “ดูจากกล้องไหน นาทีที่เท่าไหร่ ใครเป็นคนดู”</p>
+          <div class="flow"><span>ป้ายเวลาจริงบนทุกวัตถุ</span><i>+</i><span>เวลาในไฟล์ (นาที:วินาที)</span><i>+</i><span class="out">ประวัติการค้นหาระบุชื่อผู้ใช้</span></div>
+          <p style="margin-top:.6rem">โปรแกรมบันทึกว่าใครค้นอะไร เมื่อไหร่ ในกล้องตัวไหน และวิดีโอย่อทุกตัวอ้างอิงกลับไปยังไฟล์ต้นฉบับได้เสมอ — ไฟล์ต้นฉบับยังเป็นพยานหลักฐานหลัก โปรแกรมช่วยให้หาเจอเร็วขึ้น</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ทำอะไรได้ ═══════════ -->
+<section class="sec product" id="can">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ทำอะไรได้</span>
+      <div><h2>ความสามารถทั้งหมดในรุ่นนี้</h2><p>ออกแบบตามระบบวิเคราะห์วิดีโอที่หน่วยงานใหญ่ใช้ แต่ทำให้ใช้ได้ในคอมเครื่องเดียวของโรงพัก</p></div>
+    </div>
+    <div class="promise">
+      <div class="reveal"><div class="ic">✓</div><div><h3>ตรวจจับและติดตามวัตถุ</h3><p>คน รถยนต์ จักรยานยนต์ รถบรรทุก รถบัส จักรยาน สุนัข แมว — ติดตามตั้งแต่เข้าภาพจนออกจากภาพ และต่อร่องรอยที่ขาดให้อัตโนมัติ</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>วิดีโอย่อ (Video Synopsis)</h3><p>ย้ายวัตถุที่เกิดคนละเวลามาแสดงพร้อมกันบนพื้นหลังเดียว เลือกได้ว่าจะย่อสั้นสุดหรือรักษาลำดับเวลาเดิม</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>ค้นหาตามลักษณะ</h3><p>ประเภท · สีหลัก · สีเสื้อ/กางเกง · ขนาด · ความเร็ว · ทิศทาง · ระยะเวลาที่อยู่ในภาพ · ช่วงเวลา · พื้นที่ · เส้นตัด</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>เส้นทางและความหนาแน่น</h3><p>ดูเส้นทางการเคลื่อนที่ของทุกวัตถุซ้อนบนภาพเดียว และภาพความร้อนว่าตรงไหนมีคนผ่านมากที่สุด</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>ป้ายเวลาอย่างที่ต้องการ</h3><p>เวลาจริงตามนาฬิกา, แบบ AM/PM, หรือนาทีที่เท่าไหร่ของไฟล์ — แก้เวลาเริ่มบันทึกทีหลังได้ทุกป้ายเปลี่ยนตาม</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>สอนให้รู้จักกล้องของคุณ</h3><p>ติดป้ายภาพจากกล้องตัวเองในโปรแกรม แล้วสั่งสอนโมเดลใหม่ได้ กล้องมุมแปลก แสงน้อย ก็ค่อย ๆ แม่นขึ้น</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>ค้นข้ามกล้อง</h3><p>เพิ่มไฟล์จากหลายกล้องแล้วค้นพร้อมกันได้ ไทม์ไลน์รวมบอกว่าแต่ละกล้องเห็นอะไรช่วงไหน</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>ทนต่อการใช้งานจริง</h3><p>ไฟดับกลางคันกด “ทำต่อ” จากจุดที่ค้าง สำรองฐานข้อมูลให้เอง เช็คพื้นที่ดิสก์ก่อนเริ่ม มีไฟล์ล็อกไว้ตามปัญหา</p></div></div>
+      <div class="reveal"><div class="ic">✓</div><div><h3>เป็นโปรแกรมจริง ไม่ใช่เว็บ</h3><p>เปิดเป็นหน้าต่างของตัวเอง ดับเบิลคลิกใช้ได้เลย เลือกไฟล์วิดีโอผ่านหน้าต่างของ Windows ตามปกติ</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ วิธีดาวน์โหลด ═══════════ -->
+<section class="sec" id="install">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ดาวน์โหลด</span>
+      <div><h2>วิธีดาวน์โหลดและเปิดใช้ครั้งแรก</h2><p>โหลดไฟล์เดียวจบ — ใหญ่กว่าโปรแกรมทั่วไปเพราะรวมสมอง AI และตัวขับการ์ดจอมาให้ครบ ไม่ต้องติดตั้ง Python หรืออะไรเพิ่ม</p></div>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="20" y="10" width="80" height="60" rx="8" fill="#132a4f"/><rect x="28" y="18" width="64" height="40" rx="4" fill="#eef1f5"/><path d="M60 26v18M52 38l8 8 8-8" stroke="#7a1f2b" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="44" y="72" width="32" height="6" rx="3" fill="#132a4f"/><rect x="34" y="82" width="52" height="8" rx="4" fill="#c9a227"/></svg></div>
+        <h3>กดดาวน์โหลด</h3>
+        <p>ได้ไฟล์ <b id="dl-name">KlongThep-win64.zip</b> <span id="dl-size">(ราว 2.5 GB)</span> จาก Google Drive — ถ้าขึ้นว่า “ไม่สามารถสแกนไวรัสได้” ให้กด <kbd>ดาวน์โหลดต่อไป</kbd> (Download anyway) เป็นเรื่องปกติของไฟล์ใหญ่</p>
+      </div>
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><path d="M22 30h30l8 8h38v46H22z" fill="#c9a227"/><path d="M22 44h76v40H22z" fill="#e2bd4a"/><rect x="48" y="52" width="24" height="26" rx="3" fill="#fff"/><path d="M60 52v26M54 58h12M54 66h12M54 74h12" stroke="#132a4f" stroke-width="2"/><path d="M86 22l10 10-10 10" fill="none" stroke="#7a1f2b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>แตกไฟล์ zip ไว้ในไดรฟ์ที่ว่างเยอะ</h3>
+        <p>คลิกขวา → <kbd>Extract All</kbd> จะได้โฟลเดอร์ <b>KlongThep</b> แนะนำวางที่ <b>D:\</b> เพราะผลการวิเคราะห์จะเก็บในโฟลเดอร์ <b>data</b> ข้างในนี้</p>
+      </div>
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="14" y="12" width="92" height="70" rx="8" fill="#1b3a6b"/><rect x="24" y="24" width="72" height="8" rx="4" fill="#fff" opacity=".9"/><rect x="24" y="38" width="52" height="6" rx="3" fill="#fff" opacity=".5"/><rect x="24" y="60" width="30" height="12" rx="4" fill="#c9a227"/><rect x="60" y="60" width="30" height="12" rx="4" fill="#fff" opacity=".35"/><path d="M30 66h18" stroke="#0d1f3c" stroke-width="2"/></svg></div>
+        <h3>ถ้า Windows ขึ้นจอฟ้าเตือน</h3>
+        <p>กด <kbd>ข้อมูลเพิ่มเติม</kbd> (More info) แล้วกด <kbd>เรียกใช้ต่อไป</kbd> (Run anyway) — เป็นเรื่องปกติของโปรแกรมที่ไม่ได้ซื้อใบรับรอง ไม่ใช่ไวรัส</p>
+      </div>
+      <div class="step reveal">
+        <div class="art"><svg viewBox="0 0 120 100" aria-hidden="true"><rect x="16" y="14" width="88" height="66" rx="8" fill="#0d1f3c"/><rect x="24" y="22" width="72" height="42" rx="4" fill="#22385f"/><rect x="34" y="36" width="20" height="12" rx="2" fill="#e2bd4a"/><rect x="34" y="30" width="18" height="4" rx="1" fill="#c9a227"/><rect x="66" y="40" width="8" height="16" rx="2" fill="#f1c59d"/><rect x="62" y="34" width="14" height="4" rx="1" fill="#c9a227"/><rect x="24" y="68" width="72" height="5" rx="2.5" fill="#cfd6df"/><rect x="24" y="68" width="14" height="5" rx="2.5" fill="#c9a227"/><circle cx="96" cy="22" r="10" fill="#1b7f4b"/><path d="M91 22l3.5 3.5 6-6" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>ดับเบิลคลิก KlongThep.exe</h3>
+        <p>หน้าต่างโปรแกรมเปิดขึ้นมา กด <b>+ เพิ่มวิดีโอ</b> ได้ทันที ไม่ต้องลงทะเบียน ไม่ต้องกรอกอะไร</p>
+      </div>
+    </div>
+    <div class="notice reveal">
+      <h3>เครื่องแบบไหนใช้ได้</h3>
+      <div class="spec">
+        <div><span>ระบบปฏิบัติการ</span>Windows 10 / 11 (64 บิต)</div>
+        <div><span>การ์ดจอ</span>NVIDIA แนะนำ (GTX 1650 ขึ้นไป) — ไม่มีก็ใช้ได้ แต่ช้ากว่าราว 10 เท่า</div>
+        <div><span>หน่วยความจำ</span>8 GB ขึ้นไป (16 GB สบาย)</div>
+        <div><span>พื้นที่ดิสก์</span>10 GB สำหรับโปรแกรม + ราว 1–3 เท่าของไฟล์วิดีโอที่วิเคราะห์</div>
+      </div>
+      <p style="margin:12px 0 0">ไฟล์วิดีโอต้องดึงออกมาจากเครื่องบันทึก (DVR/NVR) ก่อน ผ่านแฟลชไดรฟ์หรือโปรแกรมของยี่ห้อกล้อง จะเป็น .mp4 .dav .h264 .avi .mkv .mov .ts .wmv ก็ได้ กล้องเทพแปลงให้เอง — ยังไม่รองรับการต่อกล้องสดแบบเรียลไทม์</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ วิธีใช้ ═══════════ -->
+<section class="sec product" id="howto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">วิธีใช้</span>
+      <div><h2>ใช้งาน 4 ขั้น</h2><p>วิเคราะห์ครั้งเดียวต่อไฟล์ หลังจากนั้นถามอะไรก็ได้ ตอบทันที</p></div>
+    </div>
+    <div class="timeline">
+      <div class="tl reveal"><div class="n">1</div><div><h3>เพิ่มวิดีโอ แล้วใส่เวลาจริงที่กล้องเริ่มบันทึก</h3><p>กด “+ เพิ่มวิดีโอ” เลือกไฟล์ ใส่วันเวลาที่กล้องเริ่มบันทึก (ดูจากตัวเลขมุมจอของกล้อง) เพื่อให้ป้ายเวลาทุกป้ายตรงกับเวลาจริง ใส่ผิดมาแก้ทีหลังได้</p></div></div>
+      <div class="tl reveal"><div class="n">2</div><div><h3>รอโปรแกรมดูให้ครั้งเดียว</h3><p>แถบด้านบนบอกความคืบหน้าและเวลาที่เหลือ ไฟล์ทั้งคืนตั้งทิ้งไว้ได้ เครื่องดับกลางคันก็กด “ทำต่อ” จากจุดที่ค้าง ระหว่างรอค้นหาไฟล์อื่นที่เสร็จแล้วได้ตามปกติ</p></div></div>
+      <div class="tl reveal"><div class="n">3</div><div><h3>กรองแล้วค้นหา</h3><p>เลือกประเภท สี ทิศทาง ช่วงเวลา หรือวาดพื้นที่/เส้นบนภาพ กด “ค้นหา” ได้ภาพย่อของทุกวัตถุที่ตรง เรียงตามเวลา คลิกดูภาพต้นฉบับพร้อมกรอบและเส้นทาง</p></div></div>
+      <div class="tl reveal"><div class="n">4</div><div><h3>สร้างวิดีโอย่อ แล้วนั่งดูแค่ไม่กี่นาที</h3><p>กด “สร้างวิดีโอย่อ” จากผลค้นหา เลือกได้ว่าอยากให้สั้นที่สุดหรือรักษาลำดับเวลา ดูจบแล้วคลิกวัตถุที่สงสัยเพื่อกระโดดไปดูต้นฉบับ ไฟล์วิดีโอย่อเป็น .mp4 ธรรมดา เปิดที่ไหนก็ได้</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ฟรี / ดาวน์โหลด ═══════════ -->
+<section class="sec price" id="free">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">ดาวน์โหลดฟรี</span>
+      <div><h2>ฟรีจริง ไม่มีเงื่อนไขซ่อน</h2><p>โปรแกรมนี้แจกให้ทุกโรงพักใช้ ไม่มีค่าใช้จ่าย ไม่มีวันหมดอายุ ไม่ต้องลงทะเบียน และแจกพร้อมซอร์สโค้ด</p></div>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <div class="price-big">ฟรี <small>/ ทุกโรงพัก · ไม่จำกัดเครื่อง · ไม่จำกัดจำนวนกล้อง</small></div>
+        <ul>
+          <li>ใช้ได้ทุกความสามารถ ไม่มีรุ่นตัดทอน ไม่มีรุ่นพรีเมียม</li>
+          <li>ไม่ต้องกรอกอีเมล ไม่ต้องกรอกคีย์ เปิดแล้วใช้เลย</li>
+          <li>ติดตั้งกี่เครื่องก็ได้ ส่งต่อให้โรงพักอื่นได้</li>
+          <li>มีรุ่นใหม่ โปรแกรมแจ้งและอัปเดตให้เองในตัว (ดาวน์โหลดแค่ไม่กี่ MB ไม่ต้องโหลดชุดใหญ่ใหม่)</li>
+          <li>ติดปัญหา ทัก Line ได้เหมือนโปรแกรมที่ซื้อ</li>
+        </ul>
+        <div class="dl-meta">
+          <div><span>ระบบปฏิบัติการ</span>Windows 10 / 11 (64 บิต)</div>
+          <div><span>ขนาดไฟล์</span><span id="dl-size2" style="display:inline;color:#fff;font-size:inherit">ราว 2.5 GB (zip)</span></div>
+          <div><span>ต้องต่อเน็ต</span>เฉพาะตอนดาวน์โหลด</div>
+        </div>
+        <div style="margin-top:16px"><a class="btn btn-gold" id="dl-main" href="#free">⬇ ดาวน์โหลด กล้องเทพ</a></div>
+        <div class="dl-alt" id="dl-alt">ซอร์สโค้ด: <a id="dl-src" href="#free">KlongThep-source.zip</a> · สัญญาอนุญาต AGPL-3.0</div>
+      </div>
+      <div class="price-card reveal">
+        <h3 style="color:#fff;font-size:1.2rem">ทำไมถึงแจกฟรี</h3>
+        <ol class="buy-steps">
+          <li><span class="k">1</span><div><b>เพราะมันควรมีในทุกโรงพัก</b><span>ภาพวงจรปิดมีอยู่แล้ว สิ่งที่ขาดคือเวลาคนดู เครื่องมือแบบนี้ราคาหลักล้านถ้าซื้อจากบริษัท เราอยากให้โรงพักเล็ก ๆ ก็มีใช้</span></div></li>
+          <li><span class="k">2</span><div><b>เพราะสร้างจากของโอเพนซอร์ส</b><span>สมอง AI ที่ใช้ (Ultralytics YOLO) มีเงื่อนไขว่าโปรแกรมที่แจกต้องเปิดซอร์สด้วย เราจึงแจกซอร์สโค้ดคู่กันตามกติกา</span></div></li>
+          <li><span class="k">3</span><div><b>เพราะอยากให้คุณลองโปรแกรมอื่นของเรา</b><span>ถ้ากล้องเทพช่วยงานได้ ลองดูโปรแกรมงานเอกสารสายอื่นในเว็บนี้ — แนวคิดเดียวกัน คือให้คอมทำงานซ้ำแทนคน</span></div></li>
+        </ol>
+        <div style="margin-top:14px"><a class="btn btn-ghost" href="index.html#lines">ดูโปรแกรมสายงานอื่น →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-label">คำถาม</span><div><h2>คำถามที่ถามกันบ่อย</h2></div></div>
+    <details class="reveal"><summary>ใช้กับกล้องยี่ห้อไหนได้บ้าง</summary><p>ทุกยี่ห้อ เพราะกล้องเทพทำงานกับ “ไฟล์” ไม่ได้ต่อกับตัวกล้อง ดึงไฟล์ออกจากเครื่องบันทึกด้วยแฟลชไดรฟ์หรือโปรแกรมของยี่ห้อนั้น (Hikvision, Dahua, Uniview, Ezviz, Imou ฯลฯ) จะเป็น .mp4 .dav .h264 .264 .h265 .avi .mkv .mov .ts .wmv ก็เปิดได้ โปรแกรมแปลงให้เองครั้งเดียว</p></details>
+    <details class="reveal"><summary>คอมไม่มีการ์ดจอ NVIDIA ใช้ได้ไหม</summary><p>ใช้ได้ โปรแกรมจะเปลี่ยนไปใช้ซีพียูเอง แต่ช้ากว่ามาก — คลิป 10 นาทีอาจใช้เวลาวิเคราะห์ราว 20–30 นาที ถ้าจะใช้กับไฟล์ทั้งคืนเป็นประจำ การ์ดจอมือสองราคาไม่กี่พันก็ทำให้เร็วขึ้นสิบเท่า</p></details>
+    <details class="reveal"><summary>ภาพจากกล้องถูกส่งไปไหนหรือเปล่า</summary><p>ไม่ ทุกอย่างประมวลผลและเก็บในโฟลเดอร์ <b>data</b> ข้างโปรแกรมในเครื่องของคุณ ไม่มีการอัปโหลด ไม่มีเซิร์ฟเวอร์กลาง ถอดสายเน็ตแล้วใช้ก็ได้ ต่อเน็ตเฉพาะตอนดาวน์โหลดโปรแกรมครั้งแรก</p></details>
+    <details class="reveal"><summary>จำหน้าคนได้ไหม</summary><p>ไม่ได้ และตั้งใจไม่ทำ การจดจำใบหน้าเป็นข้อมูลชีวภาพตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล ซึ่งมีเงื่อนไขการใช้ที่เข้มงวดกว่ามาก กล้องเทพช่วยหา “คนเสื้อแดงที่เดินมาทางซ้ายตอนบ่ายสาม” แล้วให้เจ้าหน้าที่เป็นคนดูหน้าเอง</p></details>
+    <details class="reveal"><summary>แม่นแค่ไหน มีพลาดไหม</summary><p>มีพลาดได้ วัตถุที่ไกลมาก (เล็กกว่า 11 พิกเซล) มืดมาก หรือถูกบังเกือบทั้งตัว อาจไม่ถูกจับ และบางครั้งรถเก๋งอาจถูกเรียกว่ารถบรรทุก โปรแกรมจึงไม่ตัดอะไรทิ้งเงียบ ๆ — ถ้าวิดีโอย่อแสดงไม่ครบจะขึ้นป้ายเตือนชัดเจน และทุกอย่างอ้างกลับไปดูไฟล์ต้นฉบับได้ ใช้เป็นเครื่องมือ “หาให้เจอเร็วขึ้น” ไม่ใช่เครื่องมือยืนยันว่า “ไม่มีอะไรเกิดขึ้น”</p></details>
+    <details class="reveal"><summary>เอาวิดีโอย่อไปเป็นพยานหลักฐานได้ไหม</summary><p>วิดีโอย่อเป็นภาพที่ประกอบขึ้นใหม่ (วัตถุคนละเวลาถูกนำมาแสดงพร้อมกัน) จึงเหมาะกับการค้นหาและอธิบาย ไม่ใช่หลักฐานแทนต้นฉบับ พยานหลักฐานควรเป็นไฟล์ต้นฉบับจากเครื่องบันทึก ซึ่งกล้องเทพบอกได้ทันทีว่าอยู่ที่นาทีเท่าไหร่ เวลาจริงกี่โมง</p></details>
+    <details class="reveal"><summary>ฟรีจริงไหม แล้วอัปเดตยังไง</summary><p>ฟรีจริง ไม่มีวันหมดอายุ ไม่ต้องลงทะเบียน เมื่อมีรุ่นใหม่ โปรแกรมจะแจ้งในแท็บ “สรุป & ประวัติการใช้งาน” กดอัปเดตแล้วรีสตาร์ท ดาวน์โหลดเฉพาะโค้ดไม่กี่ MB โฟลเดอร์ <b>data</b> และ <b>config.yaml</b> ไม่ถูกแตะ ผลการวิเคราะห์เดิมยังใช้ต่อได้</p></details>
+    <details class="reveal"><summary>ใช้กับกล้องหลายตัวพร้อมกันได้ไหม</summary><p>ได้ เพิ่มไฟล์จากทุกกล้องเข้าไป โปรแกรมจะประมวลผลทีละไฟล์ต่อคิวให้เอง แล้วค้นหาข้ามกล้องได้ในหน้าเดียว ส่วนวิดีโอย่อทำทีละกล้อง เพราะต้องใช้พื้นหลังของกล้องนั้น</p></details>
+  </div>
+</section>
+
+<!-- ═══════════ ติดต่อ ═══════════ -->
+<section class="sec product" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-label">ติดต่อ</span><div><h2>ติดปัญหา หรืออยากให้เพิ่มอะไร</h2><p>ทักมาได้เลย ส่งภาพหน้าจอหรือไฟล์ <b>data\logs\klongthep.log</b> มาด้วยจะช่วยได้เร็วขึ้น</p></div></div>
+    <div class="contact reveal">
+      <div><span>Line ID</span><b>kaveek1169</b></div>
+      <div><span>โทรศัพท์</span><b>083-805-4193</b></div>
+      <div><span>อีเมล</span><b>kaveek1@gmail.com</b></div>
+      <div><span>ผู้พัฒนา</span><b>น้อย</b></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>โปรแกรมงานตำรวจ · <span id="kt-foot">กล้องเทพ</span></span>
+    <span>ผู้จำหน่าย: น้อย · Line kaveek1169</span>
+  </div>
+</footer>
+
+<!-- ═══════════ ตัวการ์ตูนตำรวจแนะนำ "ด.ต.อำนวย หัวคาด" (ต้นแบบวาดเอง) ═══════════ -->
+<div class="guide" id="guide">
+  <div class="bubble" id="bubble">
+    <button class="close" id="gclose" aria-label="ปิด">✕</button>
+    <b>ด.ต.อำนวย หัวคาด — ผู้ช่วยแนะนำ</b>
+    <span id="gtext"></span><span class="cur"></span>
+  </div>
+  <svg class="officer" id="officer" viewBox="0 0 200 220" aria-hidden="true">
+    <path d="M40 220c0-44 22-70 60-70s60 26 60 70z" fill="#8a7a4e"/>
+    <path d="M100 150l-16 20 16 44 16-44z" fill="#6f6139"/>
+    <path d="M100 152l-6 8 6 34 6-34z" fill="#3b2f1e"/>
+    <rect x="46" y="156" width="30" height="12" rx="4" fill="#6f6139"/><rect x="124" y="156" width="30" height="12" rx="4" fill="#6f6139"/>
+    <path d="M40 182l12-8 12 8M40 191l12-8 12 8M40 200l12-8 12 8" fill="none" stroke="#c9a227" stroke-width="3.5" stroke-linejoin="round"/>
+    <rect x="112" y="178" width="30" height="8" rx="2" fill="#f2f2f2"/><rect x="60" y="176" width="26" height="10" rx="2" fill="#c9a227"/>
+    <rect x="86" y="128" width="28" height="26" rx="8" fill="#e8b98f"/>
+    <ellipse cx="100" cy="98" rx="42" ry="46" fill="#f1c59d"/>
+    <path d="M58 100c0-18 8-30 20-36h44c12 6 20 18 20 36" fill="#2b2118"/>
+    <ellipse cx="58" cy="104" rx="7" ry="9" fill="#e8b98f"/><ellipse cx="142" cy="104" rx="7" ry="9" fill="#e8b98f"/>
+    <path d="M52 74c0-22 22-34 48-34s48 12 48 34l-6 4H58z" fill="#8a7a4e"/>
+    <path d="M50 76h100l4 6c0 5-26 9-54 9s-54-4-54-9z" fill="#2b2b2b"/>
+    <path d="M60 78c12 10 68 10 80 0" fill="none" stroke="#c9a227" stroke-width="3"/>
+    <path d="M52 74c10-6 86-6 96 0v4c-10 5-86 5-96 0z" fill="#3b3a36"/>
+    <circle cx="100" cy="58" r="9" fill="#c9a227"/><path d="M100 51l2 4.5h4.8l-3.9 2.9 1.5 4.6-4.4-2.8-4.4 2.8 1.5-4.6-3.9-2.9h4.8z" fill="#7a1f2b"/>
+    <path d="M78 92c6-4 14-4 20 0M102 92c6-4 14-4 20 0" fill="none" stroke="#2b2118" stroke-width="3" stroke-linecap="round"/>
+    <g class="eye"><ellipse cx="88" cy="103" rx="5" ry="6" fill="#2b2118"/><circle cx="90" cy="101" r="1.6" fill="#fff"/></g>
+    <g class="eye"><ellipse cx="112" cy="103" rx="5" ry="6" fill="#2b2118"/><circle cx="114" cy="101" r="1.6" fill="#fff"/></g>
+    <path d="M100 108v8" stroke="#d9a07a" stroke-width="3" stroke-linecap="round"/>
+    <path d="M86 122c6 8 22 8 28 0" fill="none" stroke="#a5563f" stroke-width="3.5" stroke-linecap="round"/>
+    <g class="hand">
+      <path d="M150 200c8-12 12-30 8-48" fill="none" stroke="#8a7a4e" stroke-width="18" stroke-linecap="round"/>
+      <circle cx="158" cy="146" r="13" fill="#f1c59d"/>
+      <path d="M150 138v-10M156 134v-12M162 135v-11M168 140v-8" stroke="#f1c59d" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <path d="M50 200c-6-12-8-28-4-42" fill="none" stroke="#8a7a4e" stroke-width="18" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<script>
+window.GUIDE_TIPS={"top": "นี่คือกล้องเทพ โปรแกรมของงานสืบสวน ตัวนี้แจกฟรีครับ ไม่มีค่าใช้จ่าย เลื่อนดูตัวอย่างการใช้งานได้เลย", "why": "กล้อง 4 ตัว 8 ชั่วโมง คือ 32 ชั่วโมงที่ต้องนั่งดู ให้ AI ดูแทนครั้งเดียว แล้วเราค่อยถามมันทีหลังดีกว่าครับ", "cases": "รถหาย คนหาย ใครเข้าซอย — ลองดูว่าในโปรแกรมทำกันกี่ขั้น ส่วนใหญ่ไม่เกินสามคลิกครับ", "can": "ความสามารถทั้งหมดอยู่ตรงนี้ครับ ที่ผมชอบสุดคือคลิกวัตถุในวิดีโอย่อแล้วมันกระโดดไปดูต้นฉบับให้เลย", "install": "ไฟล์ใหญ่หน่อยนะครับ เพราะรวมสมอง AI มาให้ครบ แตก zip แล้วดับเบิลคลิก KlongThep.exe ได้เลย ไม่ต้องลงอะไรเพิ่ม", "howto": "จำแค่นี้ครับ เพิ่มวิดีโอ ใส่เวลาจริง รอมันดูให้ครั้งเดียว แล้วค้นหาหรือย่อได้ตลอด", "free": "ฟรีจริงครับ ไม่มีเงื่อนไข โหลดไปแจกโรงพักข้าง ๆ ก็ได้ ถ้าถูกใจ ลองดูโปรแกรมสายอื่นของเราด้วยนะครับ", "faq": "แม่นไหม พลาดไหม ส่งภาพออกเน็ตไหม — ตอบไว้ตรง ๆ ในนี้ครับ ไม่มีก็ทัก Line มาได้", "contact": "ติดปัญหาส่งไฟล์ล็อกมาให้ผมดูได้เลยครับ อยู่ที่ data\\logs ข้างโปรแกรม"};
+</script>
+<script>
+/* ลิงก์ดาวน์โหลดของกล้องเทพอ่านจาก klongthep.json — แก้ไฟล์นั้นไฟล์เดียวเมื่อออกรุ่นใหม่ */
+(function(){
+  fetch('klongthep.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(v){
+    if(!v)return;
+    var gb=v.size?(v.size/1073741824):0, sz=gb?(gb.toFixed(1)+' GB'):'';
+    if(v.url){ ['dl-hero','dl-main'].forEach(function(id){var a=document.getElementById(id);if(a){a.href=v.url;a.removeAttribute('download');}}); }
+    if(v.source){ var s=document.getElementById('dl-src'); if(s){s.href=v.source;} }
+    if(v.url){ var n=document.getElementById('dl-name'); if(n)n.textContent=v.url.split('/').pop(); }
+    if(sz){ var a=document.getElementById('dl-size'); if(a)a.textContent='('+sz+')'; var b=document.getElementById('dl-size2'); if(b)b.textContent=sz+' (zip)'; }
+    var note=document.getElementById('vernote'), foot=document.getElementById('kt-foot');
+    if(v.version){ if(note)note.textContent='รุ่น '+v.version+(v.released?' · ออกเมื่อ '+v.released:'')+' · Windows 10 / 11 (64 บิต)'+(sz?' · '+sz:'')+' · ฟรี'; if(foot)foot.textContent='กล้องเทพ รุ่น '+v.version; }
+  }).catch(function(){});
+})();
+</script>
+<script>
+/* โปรแกรมงานตำรวจ — สคริปต์ร่วมทุกหน้า (ตัดเฉพาะส่วนที่หน้านี้ใช้) */
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(x){io.observe(x)});
+
+  var guide=document.getElementById('guide'), tips=window.GUIDE_TIPS||{};
+  if(guide){
+    var gtext=document.getElementById('gtext'), curKey='', typing=null, secKey='top';
+    var say=function(key){
+      if(key===curKey||!tips[key])return; curKey=key;
+      var s=tips[key], i=0; clearInterval(typing); gtext.textContent='';
+      if(reduce){gtext.textContent=s;return}
+      typing=setInterval(function(){gtext.textContent=s.slice(0,++i); if(i>=s.length)clearInterval(typing)},22);
+    };
+    try{ if(localStorage.getItem('guideOff')==='1') guide.classList.add('hidden'); }catch(e){}
+    document.getElementById('gclose').addEventListener('click',function(){guide.classList.add('hidden');try{localStorage.setItem('guideOff','1')}catch(e){}});
+    document.getElementById('officer').addEventListener('click',function(){curKey='';say(secKey)});
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){secKey=e.target.id;say(secKey)}})},{rootMargin:'-40% 0px -50% 0px'});
+    Object.keys(tips).forEach(function(id){var n=document.getElementById(id);if(n)so.observe(n)});
+    say('top');
+  }
+})();
+</script>
+</body>
+</html>

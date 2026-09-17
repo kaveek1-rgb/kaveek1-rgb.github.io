@@ -212,7 +212,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .pain .arrow-down{display:block;color:var(--maroon);font-family:var(--kan);margin:10px 0 4px;font-size:.9rem}
 .pain .fix{color:var(--ok);font-weight:600}
 .promise{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.promise div{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;gap:14px;align-items:flex-start}
+.promise>div{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;gap:14px;align-items:flex-start}
+.promise>div>div{min-width:0}
 .promise .ic{width:42px;height:42px;border-radius:10px;background:var(--navy);color:var(--gold-2);display:grid;place-items:center;flex:none}
 .promise h3{font-size:1.02rem;color:var(--navy);margin-bottom:.15em}
 .promise p{margin:0;font-size:.92rem;color:var(--ink-2)}
